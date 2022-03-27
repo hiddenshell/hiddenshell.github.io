@@ -8,10 +8,45 @@
 </head>
 
 <body>
+<div>
+  <h3>Aircrack-ng All Tools</h3>
+  <ul><li><a href="#airmon-ng">airmon-ng</a></li><li><a href="#airodump-ng">airodump-ng</a></li></ul>
   
-<div id="airmon-ng">
-  airmon-ng
+  
 </div>
+___________________________________________
+<div id="airmon-ng">
+  <h2>Airmon-ng</h2>
+  <h4>To See Available Network Interface </h4>
+  <i>$ airmon-ng</i>
+  <h4>Enable Monitor Mode</h4>
+    <p> To start monitor mode cmd,<br><br><i>  $ airmon-ng start {interface name}</i><br><b>Example: </b>airmon-ng start wlan0 <br><br>
+      To stop monitor mode cmd,<br><br><i>  $ airmon-ng stop {interface name}</i><br><b>Example: </b>airmon-ng stop wlan0</p>
+      
+ <br><br>
+</div>
+
+
+<div id="airodump-ng">
+  <h2>Airodump-ng</h2>
+  <h4>Scanning Network</h4>
+   To see available wireless network<br><b><i>$ airodump-ng {interface}</i></b><br> <br>
+   To scan target network<br><i><b>airodump-ng --bssid {BSSID} --channel {ch_number} --write {file_name} {interface}</b></i>
+  
+</div>
+
+
+<div id="aireplay-ng">
+  <br><br>
+  <h2>Aireplay-ng</h2>
+  <h4>Deauthenticate</h4>
+   To Deauthenticate Target<br><br><b><i>$ aireplay-ng --deauth {num_pckt} -a {router_bssid} -c {target_bssid} {interface}</i></b>
+  
+  
+</div>
+
+
+
 </body>
 
 </html>
