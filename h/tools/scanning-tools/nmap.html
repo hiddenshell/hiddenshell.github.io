@@ -17,28 +17,60 @@
 	<h1 style="text-align: center;"> Nmap </h1>
 	<p>Nmap is a network scanner created by Gordon Lyon. Nmap is used to discover hosts and services on a computer network by sending packets and analyzing the responses. Nmap provides a number of features for probing computer networks, including host discovery and service and operating system detection</p><br>
 	<h3> Nmap command line arg </h3>
-		1. ping scan: -sn <br>
-		port scan: -p[port number] / p[port range]<br>
-		Full Open Scan cmd: -sT<br>
-		2. skip ping scan: -Pn<br>
-		scan popular ports: -F<br>
-		os detection scan: -O <br>
-		Stealth scan / SYN (half scan): -sS **<br>
-		3. tcp inverse scann: -sN <br>
-		4. ACK flag probe: -sA <br>
-		<b>5. aggresive scan: </b>
-			<ol> <li> For version: -sV **</li>
+		
+		<b> Normal Scan: </b>
+		<ol><li> ping scan: -sn </li>
+			<li>port scan: -p[port number] / p[port range]</li>
+			<li>Full Open Scan cmd: -sT</li>
+			<li>skip ping scan: -Pn</li>
+			<li>scan popular ports: -F **</li>
+			<li>os detection scan: -O </li>
+			<li>Stealth scan / SYN (half scan): -sS **</li>
+			<li> tcp inverse scann: -sN </li>
+			<li> ACK flag probe: -sA </li>
+			<li>UDP scan: -sU</li>
+		</ol>
+		<b>Aggresive scan: </b>
+			<ul> <li> For version: -sV **</li>
 				<li> More detail aggresive scan: -A</li>
+			</ul>
+		
+		<b> Firewall Bypass: </b>
+			<ol>
+				<li><b>Fragment Packet</b>
+					<ul><li> fragment with default size 8: -f</li>
+						<li> fragment with custom size: --mtu [size] </li>
+					</ul>
+				</li>
+				
+				<li> Decoy - spoof with random ip: -D RND:16 </li>
+				<li> Decoy - spoof with specified ip: -D [ip 1],[ip 2],ME...
+				<li> Spoof Ip: -S [spoof ip] -e [iface]</li>
+				<li> Spoof MAC: --spoof-mac 0</li>
+				<li> Check Firewall: --badsum</li>
+			
 			</ol>
+			
+		<b> Vulnability Scanning: </b>
+			<ul> 
+				<li> Auth check: --script auth </li>
+				<li> Brute-Force: --script brute</li>
+				<li> exploit check: --script exploit</li>
+				<li> vulnability check: --script vuln</li>
+				>>Detail info - <a href="https://nmap.org/book/man-nse.html" >here</a>
+				<li><b>Example: </b>
+					<ul>
+						<li> nmap nse: nmap -sV -sS --script exploit [ip]</li>
+						<li> Find Vuln with searchsploit: <br>>>>>> <i>nmap -sV -sS -oX result.xml [ip] && searchsploit --nmap result.xml</i></li>
+					</ul>
+				</li>
+				
+			</ul>
 		
-		UDP scan: -sU <br><br>
-		
-		<b> write output</b><br>
-		[cmd] > [location]<br>
-		grepable output: -oG
-		
-		
-		
-	
+		<b> write output</b>
+			<ul><li>[cmd] > [location]</li>
+				<li>grepable output: -oG</li>
+			</ul>
+<br><br><br><p style="text-align: center;">-----------END----------</p>
 </body>
 </html>
