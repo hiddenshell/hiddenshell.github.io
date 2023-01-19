@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Website Hacking</title>
+
+</head>
+
+<body>
+
+<h1 style="text-align: center;">Website Hacking</h1>
+
+<div>
+<h2><li>Primary Information Gather</li></h2> 
+<p><b>Using browser ----</b>
+  <ol>1. source view</ol> <ol>2. inspect<ol>Inspector</ol><ol>Debugger</ol><ol>Network</ol></ol> </p>
+          
+</div>
+
+<div>
+  <h2><li>Content Discovery</li></h2>
+  <p><b>Manual Method</b></p> 
+    <ol>Check robots.txt</ol>
+    <ol>Check fevicon hash and compare with database to identify framework. favicon database link --<a href="https://wiki.owasp.org/index.php/OWASP_favicon_database"> https://wiki.owasp.org/index.php/OWASP_favicon_database</a>
+    <ol><b>Discovering fevicon hash</b></ol>
+      <ol>Linux --- curl [favicon.ico URL] | md5sum</ol>
+      <ol>Windows powershell --- " curl [favicon.ico URL] -UseBasicParsing -o favicon.ico " and " Get-FileHash .\favicon.ico -Algorithm MD5 "</ol></ol>
+
+    <ol>Check sitemap.xml file </ol>
+    <ol>Check http response --- curl [URL] -v</ol>
+
+    <ol>Using google dorks<ol>site --- site:tryhackme.com ---	returns results only from the specified website address</ol>
+    <ol>inurl ---	inurl:admin ---	returns results that have the specified word in the URL</ol>
+    <ol>filetype --- filetype:pdf ---	returns results which are a particular file extension</ol>
+    <ol>intitle --- intitle:admin ---	returns results that contain the specified word in the title</ol></ol>
+
+  <p><b>Automatated with tools</b></p>
+        <ol><a href="https://www.wappalyzer.com/" >wappalizer </a></ol>
+        <ol>ffuf --- ffuf -w wordlist -u url/FUZZ</ol>
+        <ol>gobuster --- gobuster dir --url [url] -w [wordlst]</ol>
+        <ol>dirb ---- dirb url wordlist</ol>
+    </div>
+<div>
+  <h2><li>Subdomain Enumeration / Subdomain Finding</li></h2>
+  <p><b>Brute Force</b></p>
+  <p><b>OSINT</b></p>
+  https://crt.sh and https://ui.ctsearch.entrust.com/ui/ctsearchui
+  -site:www.tryhackme.com  site:*.tryhackme.com
+  <p><b>Brute Force</b></p>
+  ffuf -w /usr/share/wordlists/SecLists/Discovery/DNS/namelist.txt -H "Host: FUZZ.acmeitsupport.thm" -u http://10.10.100.232
+  ffuf -w /usr/share/wordlists/SecLists/Discovery/DNS/namelist.txt -H "Host: FUZZ.acmeitsupport.thm" -u http://10.10.100.232 -fs [size] --- replace size with 200 code size
+</div>
+</body>
+</html>
+
