@@ -49,13 +49,13 @@
 <div>
   <h2><li>Subdomain Enumeration / Subdomain Finding</li></h2>
   <p><b>Brute Force</b></p>
-  <p><b>OSINT</b></p>
-  https://crt.sh and https://ui.ctsearch.entrust.com/ui/ctsearchui
-  -site:www.tryhackme.com  site:*.tryhackme.com
-  <p><b>Brute Force</b></p>
   ffuf -w /usr/share/wordlists/SecLists/Discovery/DNS/namelist.txt -H "Host: FUZZ.acmeitsupport.thm" -u http://10.10.100.232
   ffuf -w /usr/share/wordlists/SecLists/Discovery/DNS/namelist.txt -H "Host: FUZZ.acmeitsupport.thm" -u http://10.10.100.232 -fs [size] --- replace size with 200 code size
-</div>
+  <p><b>OSINT</b></p>
+  <ol>Open subdomain SSL log: <a href="https://crt.sh">https://crt.sh</a> and <a href="https://ui.ctsearch.entrust.com/ui/ctsearchui">https://ui.ctsearch.entrust.com/ui/ctsearchui</a></ol>
+  <ol>Google dork: -site:www.tryhackme.com  site:*.tryhackme.com</ol>
+  <p><b>Virtual Host</b></p>
+  </div>
 </body>
 </html>
 
