@@ -49,8 +49,8 @@
 <div>
   <h2><li>Subdomain Enumeration / Subdomain Finding</li></h2>
   <p><b>Brute Force</b></p>
-  ffuf -w /usr/share/wordlists/SecLists/Discovery/DNS/namelist.txt -H "Host: FUZZ.acmeitsupport.thm" -u http://10.10.100.232
-  ffuf -w /usr/share/wordlists/SecLists/Discovery/DNS/namelist.txt -H "Host: FUZZ.acmeitsupport.thm" -u http://10.10.100.232 -fs [size] --- replace size with 200 code size
+  <ol>ffuf tool: <ol>ffuf -w /usr/share/wordlists/SecLists/Discovery/DNS/namelist.txt -H "Host: FUZZ.acmeitsupport.thm" -u http://10.10.100.232 </ol><ol> ffuf -w /usr/share/wordlists/SecLists/Discovery/DNS/namelist.txt -H "Host: FUZZ.acmeitsupport.thm" -u http://10.10.100.232 -fs [size] --- replace size with 200 code size</ol></ol>
+  <ol><a href="../tools/recon-tools/sublister.html" >sublist3r </a>: ./sublist3r.py -d example.com</ol>
   <p><b>OSINT</b></p>
   <ol>Open subdomain SSL log: <a href="https://crt.sh">https://crt.sh</a> and <a href="https://ui.ctsearch.entrust.com/ui/ctsearchui">https://ui.ctsearch.entrust.com/ui/ctsearchui</a></ol>
   <ol>Google dork: -site:www.tryhackme.com  site:*.tryhackme.com</ol>
@@ -58,4 +58,3 @@
   </div>
 </body>
 </html>
-
