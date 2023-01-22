@@ -20,24 +20,30 @@
 
 <br><br><h1 style="text-align: center;text-decoration: underline;">Information Gathering</h1>
 <div>
-<h2><li>Primary Information Gather</li></h2> 
+<h2><li>Primary Information Gathering</li></h2> 
 <p><b>Using browser ----</b>
   <ol>1. source view</ol> <ol>2. inspect<ol>Inspector</ol><ol>Debugger</ol><ol>Network</ol></ol> </p>
 <p><b>DNS Footprinting</b></p>
 
+    <ol>whois (domain name/ip) -- <a href="https://whois.domaintools.com/" target="_blank">site 1</a>,<a href="https://www.netcraft.com/tools/" target="_blank">site 2</a>,<a href="https://www.robtex.com/" target="_blank">site 3</a></ol> 
+    <ol>DNS info gathering tool -- <a href="https://dnsdumpster.com/" target="_blank">dns dumpster</a></ol>
+    <ol>Check other site on the server -- <a href="https://www.robtex.com/" target="_blank">robtex</a> or bing:[IP]</ol>
+    <ol>some kali tool usages articles
     <ol>nslookup - help source (<a href="https://www.geeksforgeeks.org/nslookup-command-in-linux-with-examples/amp/" target="_blank">source 1</a>,<a href="https://phoenixnap.com/kb/nslookup-command" target="_blank">source 2</a>)</ol>
-    <ol>whois (domain name/ip) -- <a href="https://whois.domaintools.com/" target="_blank">Tool 1</a>,</ol>
-    <ol><a href="https://dnsdumpster.com/" target="_blank">dns dumpster</a> - dns info gathering tool</ol>
-    <ol><a href="https://www.cyberpratibha.com/enumerating-dns-records-through-dnsenum-tool-in-kali-linux/?amp=1" target="_blank">dnsenum</a> (domain) - dns info gathering tool</ol>
-    <ol><a href="https://www.cyberpratibha.com/dnsmap-dns-domain-name-brute-forcing-tool/?amp=1" target="_blank"> dnsmap</a> (domain) - subdomain brute-forcing tool</ol>
+    <ol> (domain) - dns info gathering tool -- <a href="https://www.cyberpratibha.com/enumerating-dns-records-through-dnsenum-tool-in-kali-linux/?amp=1" target="_blank">dnsenum</a></ol>
+    </ol>
 <p><b>Must gather these information</b></p>
 <i>
-  <ol>domain name = </ol>
+  <ol>domains name = </ol>
   <ol>IP Address = </ol>
   <ol>Server name and version = </ol>
   <ol>Server side language = </ol>
-  <ol>Common server application and their version = </ol>
-  
+  <ol>Server applications name and their version = </ol>
+  <ol>Hosting provider = </ol>
+  <ol>Nameservers = </ol>
+  <ol>DNS records = </ol>
+
+
 </i>
 </div>
 
@@ -69,9 +75,11 @@
   <p><b>Brute Force</b></p>
   <ol>ffuf tool: <ol>ffuf -w /usr/share/wordlists/SecLists/Discovery/DNS/namelist.txt -H "Host: FUZZ.acmeitsupport.thm" -u http://10.10.100.232 </ol><ol> ffuf -w /usr/share/wordlists/SecLists/Discovery/DNS/namelist.txt -H "Host: FUZZ.acmeitsupport.thm" -u http://10.10.100.232 -fs [size] --- replace size with 200 code size</ol></ol>
   <ol><a href="../tools/recon-tools/sublister.html" >sublist3r </a>: ./sublist3r.py -d example.com</ol>
+  <ol> (domain) - subdomain brute-forcing tool -- <a href="https://www.cyberpratibha.com/dnsmap-dns-domain-name-brute-forcing-tool/?amp=1" target="_blank"> dnsmap</a></ol>
   <p><b>OSINT</b></p>
   <ol>Open subdomain SSL log: <a href="https://crt.sh" target="_blank">https://crt.sh</a> and <a href="https://ui.ctsearch.entrust.com/ui/ctsearchui" target="_blank">https://ui.ctsearch.entrust.com/ui/ctsearchui</a></ol>
   <ol>Google dork: -site:www.tryhackme.com  site:*.tryhackme.com</ol>
+  
   </div>
 
   <br><br><h1 style="text-align: center;text-decoration: underline;">Vulnerability Finding</h1>
