@@ -23,15 +23,20 @@
 <h2><li>Primary Information Gathering</li></h2> 
 <p><b>Using browser ----</b>
   <ol>1. source view</ol> <ol>2. inspect<ol>Inspector</ol><ol>Debugger</ol><ol>Network</ol></ol> </p>
+  <ol>3. get full source code - <a href="https://www.kali.org/tools/httrack/" target="_blank">httrack </a><br></ol>
 <p><b>DNS Footprinting</b></p>
 
     <ol>whois (domain name/ip) -- <a href="https://whois.domaintools.com/" target="_blank">site 1</a>,<a href="https://www.netcraft.com/tools/" target="_blank">site 2</a>,<a href="https://www.robtex.com/" target="_blank">site 3</a></ol> 
     <ol>DNS info gathering tool -- <a href="https://dnsdumpster.com/" target="_blank">dns dumpster</a></ol>
     <ol>Check other site on the server -- <a href="https://www.robtex.com/" target="_blank">robtex</a> or bing:[IP]</ol>
+    <ol> theHarvester - <a href="https://www.kali.org/tools/theharvester/" target="_blank">theHarvester </a></ol>
+    <ol>hunter.io - <a href="https://hunter.io/" target="_blank">hunter.io</a></ol>
+    <ol>whatweb - <a href="../tools/recon-tools/whatweb.html" >whatweb </a></ol>
     <ol>some kali tool usages articles
     <ol>nslookup - help source (<a href="https://www.geeksforgeeks.org/nslookup-command-in-linux-with-examples/amp/" target="_blank">source 1</a>,<a href="https://phoenixnap.com/kb/nslookup-command" target="_blank">source 2</a>)</ol>
     <ol> (domain) - dns info gathering tool -- <a href="https://www.cyberpratibha.com/enumerating-dns-records-through-dnsenum-tool-in-kali-linux/?amp=1" target="_blank">dnsenum</a></ol>
     </ol>
+<b>Using -- <a href="https://www.maltego.com/" target="_blank">Maltego</a></b>
 <p><b>Must gather these information</b></p>
 <i>
   <ol>domains name = </ol>
@@ -42,8 +47,7 @@
   <ol>Hosting provider = </ol>
   <ol>Nameservers = </ol>
   <ol>DNS records = </ol>
-
-
+  <ol>Number of website on this server = </ol>
 </i>
 </div>
 
@@ -70,11 +74,14 @@
         <ol>gobuster --- gobuster dir --url [url] -w [wordlst]</ol>
         <ol>dirb ---- dirb url wordlist</ol>
     </div>
+
+    <!--        subdomain finding section start from here       -->
 <div>
   <h2><li>Subdomain Enumeration / Subdomain Finding</li></h2>
   <p><b>Brute Force</b></p>
   <ol>ffuf tool: <ol>ffuf -w /usr/share/wordlists/SecLists/Discovery/DNS/namelist.txt -H "Host: FUZZ.acmeitsupport.thm" -u http://10.10.100.232 </ol><ol> ffuf -w /usr/share/wordlists/SecLists/Discovery/DNS/namelist.txt -H "Host: FUZZ.acmeitsupport.thm" -u http://10.10.100.232 -fs [size] --- replace size with 200 code size</ol></ol>
   <ol><a href="../tools/recon-tools/sublister.html" >sublist3r </a>: ./sublist3r.py -d example.com</ol>
+  <ol>knock - <a href="https://github.com/guelfoweb/knock" target="_blank">knock</a></ol>
   <ol> (domain) - subdomain brute-forcing tool -- <a href="https://www.cyberpratibha.com/dnsmap-dns-domain-name-brute-forcing-tool/?amp=1" target="_blank"> dnsmap</a></ol>
   <p><b>OSINT</b></p>
   <ol>Open subdomain SSL log: <a href="https://crt.sh" target="_blank">https://crt.sh</a> and <a href="https://ui.ctsearch.entrust.com/ui/ctsearchui" target="_blank">https://ui.ctsearch.entrust.com/ui/ctsearchui</a></ol>
