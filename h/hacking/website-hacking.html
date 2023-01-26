@@ -126,7 +126,15 @@
     <p> If website allow to upload any kind file like .php, .python then this vulnerability exist. <br>
     If they block other file upload, then intercept the request with burp suit, modifiy file name then forward it.<br>
     if they check file extension too.. then modifiy name with like this >>>> shell.php.jpg</p>
-  
+    
+
+    <h2><li>Server-Side Request Forgery (SSRF)</li></h2>
+    <p>
+     If website allow to inject payload on url parameter, html form value. then this vulnerability exits.<br>
+     To exploit it try to inject payload on parameters or redirect to another site work exploit it. "&x=" use to bypass logical parameters.<br>
+     if '/' not work then use x/. 
+    </p>
+
   </div>
             <!--  Vulnerability Finding section end here    -->
 
