@@ -18,8 +18,19 @@
 	<p>Nmap is a network scanner created by Gordon Lyon. Nmap is used to discover hosts and services on a computer network by sending packets and analyzing the responses. Nmap provides a number of features for probing computer networks, including host discovery and service and operating system detection</p><br>
 	<h3> Nmap command line arg </h3>
 		
+		<b> Host discovery: </b>
+		<ul><li>host discovery only: -sn </li><br>
+			<li>ARP Method: -PR</li>
+			<li>ICMP Method: -PE</li>
+			<li>ICMP Timestamp Method: -PP</li>
+			<li>ICMP MASK Method: -PM</li>
+			<li>TCP SYN Method: -PS // -ps21, -ps23,80</li>
+			<li>TCP ACK Method: -PA *root priv // -pa21, -pa23,80</li>
+			<li>UDP Method: -PU</li>
+		</ul>
 		<b> Normal Scan: </b>
-		<ol><li> ping scan: -sn </li>
+		<ol><li>no DNS lookup: -n</li>
+			<li>reverse-DNS lookup: -R</li>
 			<li>port scan: -p[port number] / p[port range]</li>
 			<li>Full Open Scan cmd: -sT</li>
 			<li>skip ping scan: -Pn</li>
