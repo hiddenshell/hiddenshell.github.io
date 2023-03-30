@@ -28,7 +28,7 @@
 			<li>TCP ACK Method: -PA *root priv // -pa21, -pa23,80</li>
 			<li>UDP Method: -PU</li>
 		</ul>
-		<b> Normal Scan: </b>
+		<b> Normal Port Scans: </b>
 		<ol><li>No DNS lookup: -n</li>
 			<li>Reverse-DNS lookup: -R</li>
 			<li>Port scan: -p[port number] / p[port range]</li>
@@ -37,9 +37,10 @@
 			<br>
 			<li>Full TCP Scan cmd: -sT</li>
 			<li>TCP Stealth scan / SYN (half scan): -sS **</li>
-			<li>os detection scan: -O </li>
-			<li> TCP inverse scann: -sN </li>
+			
 			<li> ACK flag probe: -sA </li>
+
+			<li>os detection scan: -O </li>
 			<li>UDP scan: -sU</li>
 			<li>Sent packet per sec: --min-rate [number] </li>
 			<li>Timing Scan: -T[0-5]
@@ -52,6 +53,14 @@
 					<li>insane (5): is the fastest</li>	
 				</ul>
 			</li>
+		</ol>
+		<b> Advanced Port Scans: </b>
+		<ol>
+			<li>Null Scan: -sN</li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
 		</ol>
 		<b>Grab banner & Aggresive scan: </b>
 			<ul> <li> For version: -sV **</li>
