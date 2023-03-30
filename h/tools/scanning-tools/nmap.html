@@ -29,17 +29,29 @@
 			<li>UDP Method: -PU</li>
 		</ul>
 		<b> Normal Scan: </b>
-		<ol><li>no DNS lookup: -n</li>
-			<li>reverse-DNS lookup: -R</li>
-			<li>port scan: -p[port number] / p[port range]</li>
-			<li>Full Open Scan cmd: -sT</li>
-			<li>skip ping scan: -Pn</li>
-			<li>scan popular ports: -F **</li>
+		<ol><li>No DNS lookup: -n</li>
+			<li>Reverse-DNS lookup: -R</li>
+			<li>Port scan: -p[port number] / p[port range]</li>
+			<li>Scan popular 100 ports: -F **</li>
+			<li>Skip ping scan: -Pn</li>
+			<br>
+			<li>Full TCP Scan cmd: -sT</li>
+			<li>TCP Stealth scan / SYN (half scan): -sS **</li>
 			<li>os detection scan: -O </li>
-			<li>Stealth scan / SYN (half scan): -sS **</li>
-			<li> tcp inverse scann: -sN </li>
+			<li> TCP inverse scann: -sN </li>
 			<li> ACK flag probe: -sA </li>
 			<li>UDP scan: -sU</li>
+			<li>Sent packet per sec: --min-rate [number] </li>
+			<li>Timing Scan: -T[0-5]
+				<ul>
+					<li>paranoid (0): scans one port at a time and waits 5 minutes between sending each probe</li>
+					<li>sneaky (1): is often used during real engagements where stealth is more important.</li>
+					<li>polite (2)</li>
+					<li>normal (3): Normal scan</li>
+					<li>aggressive (4):  is often used during CTFs and when learning to scan on practice targets,</li>
+					<li>insane (5): is the fastest</li>	
+				</ul>
+			</li>
 		</ol>
 		<b>Grab banner & Aggresive scan: </b>
 			<ul> <li> For version: -sV **</li>
