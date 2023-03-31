@@ -67,8 +67,9 @@
 		<b> Firewall Bypass: </b>
 			<ol>
 				<li><b>Fragment Packet</b>
-					<ul><li> fragment with default size 8: -f</li>
-						<li> fragment with custom size: --mtu [size] </li>
+					<ul><li> fragment with default size 8: -f </li>
+						<li> fragment with default size 16: -ff </li>
+						<li> fragment with custom size: --mtu [size x 8] </li>
 					</ul>
 				</li>
 				
@@ -76,6 +77,7 @@
 				<li> Decoy - spoof with specified ip: -D [ip 1],[ip 2],ME...
 				<li> Spoof Ip: -S [spoof ip] -e [iface]</li>
 				<li> Spoof MAC: --spoof-mac 0</li>
+				<li>Idle/Zombie Scan: -sI [zombie_ip]</li>
 				<li> Check Firewall: --badsum</li>
 			
 			</ol>
@@ -95,8 +97,12 @@
 				</li>
 				
 			</ul>
-		
-		<b> write output</b>
+		<b> More Options</b>
+			<ul>
+				<li>Result reason: --reason</li>
+				<li>Verbose: -v / -vv</li>
+			</ul>
+		<b> Write output</b>
 			<ul><li>[cmd] > [location]</li>
 				<li>grepable output: -oG</li>
 			</ul>
