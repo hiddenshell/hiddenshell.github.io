@@ -149,7 +149,8 @@
 				<td>Checks for vulnerabilities or exploit vulnerable services</td>
 			</tr>
 		</tbody>
-		</table><br><br>
+		</table><br>
+		Note: scripts path - /usr/share/nmap/scripts. use script <code></code>--script "SCRIPT NAME"</code><br><br>
 	
 		<b> Vulnability Scanning: </b>
 			<ul> 
@@ -174,7 +175,9 @@
 			</ul>
 		<b> Write output</b>
 			<ul><li>[cmd] > [location]</li>
-				<li>grepable output: -oG</li>
+				<li>Normal Scan Output: -oN FILENAME</li>
+				<li>Grepable output: -oG FILENAME //grep KEYWORD TEXT_FILE</li>
+				<li>XML Format: -oX FILENAME</li>
 			</ul>
 <br><br><br><p style="text-align: center;">-----------END----------</p>
 </body>
