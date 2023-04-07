@@ -5,33 +5,118 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metasploit</title>
+
+    <style>
+
+        table.GeneratedTable {
+          width: 50%;
+          background-color: #ffffff;
+          border-collapse: collapse;
+          border-width: 1px;
+          border-color: #000000;
+          border-style: solid;
+          color: #000000;
+        }
+        
+        table.GeneratedTable td, table.GeneratedTable th {
+          border-width: 1px;
+          border-color: #000000;
+          border-style: solid;
+          padding: 3px;
+        }
+        
+        table.GeneratedTable thead {
+          background-color: #e8e8e8;
+        }
+        </style>
+
 </head>
 <body>
     <h1 style="text-align: center;">Metasploit-Framework</h1><br>
     <div>
         <h2>Popular Exploits</h2>
         <ul>
-            <li>SMBv1 Exploit: exploit/windows/smb/ms17_010_eternalblue</li>
+            <table class="GeneratedTable">
+              <thead>
+                <tr>
+                  <th>Service Name</th>
+                  <th>Exploit Modules</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> SMBv1 Exploit</td>
+                  <td>exploit/windows/smb/ms17_010_eternalblue</td>
+                </tr>
+                
+              </tbody>
+            </table>
+            </ul>
+    
             
-        </ul>
         <h2>Popular Auxiliary/Scanner</h2>
-        <ul>
-            <li>SMB Scan: <code>scanner/smb/smb_version</code> or scanner/smb/smb_enumshares </li>
-            <li>NetBIOS Info discover: scanner/netbios/nbname</li>
-            <li>HTTP Version Detection: scanner/http/http_version</li>
-            <li>SMB Login Brute-Force: scanner/smb/smb_login</li>
-            <li>UDP service Identification: scanner/discovery/udp_sweep</li>
-        </ul>
+
+    <ul>
+    <table class="GeneratedTable">
+      <thead>
+        <tr>
+          <th>Service Name</th>
+          <th>Auxiliary Modules</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>SMB Scan</td>
+          <td>scanner/smb/smb_version or scanner/smb/smb_enumshares</td>
+        </tr>
+        <tr>
+          <td>NetBIOS Info discover</td>
+          <td>scanner/netbios/nbname</td>
+        </tr>
+        <tr>
+          <td>HTTP Version Detection</td>
+          <td>scanner/http/http_version</td>
+        </tr>
+        <tr>
+            <td>SMB Login Brute-Force</td>
+            <td>scanner/smb/smb_login</td>
+          </tr>
+          <tr>
+            <td> SMBv1 Exploit</td>
+            <td>exploit/windows/smb/ms17_010_eternalblue</td>
+          </tr>
+      </tbody>
+    </table>
+    </ul>
 
         <h2>Popular Services MSF Modules</h2>
         <ul>
             <li>
                 <h3>SMB</h3>
                 <ul>
-                    <li>SMB version scan: scanner/smb/smb_version</li>
-                    <li>SMB Login Brute-Force: scanner/smb/smb_login </li>
-                    <li>SMBv1 exploit: exploit/windows/smb/ms17_010_eternalblue</li>
-                </ul>
+                    <table class="GeneratedTable">
+                      <thead>
+                        <tr>
+                          <th>Service Name</th>
+                          <th>Auxiliary Modules</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>SMB Version Scan</td>
+                          <td>scanner/smb/smb_version or scanner/smb/smb_enumshares</td>
+                        </tr>
+                        <tr>
+                            <td>SMB Login Brute-Force</td>
+                            <td>scanner/smb/smb_login</td>
+                          </tr>
+                          <tr>
+                            <td>UDP service Identification</td>
+                            <td>scanner/discovery/udp_sweep</td>
+                          </tr>
+                      </tbody>
+                    </table>
+                    </ul>
 
             </li>
         </ul>
