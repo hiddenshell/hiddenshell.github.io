@@ -3,3 +3,24 @@ body {
     margin: 20px 30px;
     font-size: x-large;
 }
+
+table.DefaultTable {
+    width: 50%;
+    background-color: #ffffff;
+    border-collapse: collapse;
+    border-width: 1px;
+    border-color: #000000;
+    border-style: solid;
+    color: #000000;
+  }
+  
+  table.DefaultTable td, table.DefaultTable th {
+    border-width: 1px;
+    border-color: #000000;
+    border-style: solid;
+    padding: 3px;
+  }
+  
+  table.DefaultTable thead {
+    background-color: #e8e8e8;
+  }
