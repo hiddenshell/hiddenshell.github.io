@@ -13,7 +13,9 @@
 <body>
     <h1 style="text-align: center;">Metasploit-Framework</h1><br>
     <div>
-        <h2>Popular Exploits</h2>
+
+<!--     Exploits modules list from here           -->
+        <br><h2>Ptopular Explois</h2>
         <ul>
             <table class="DefaultTable">
               <thead>
@@ -32,9 +34,8 @@
             </table>
             </ul>
     
-            
-        <h2>Popular Auxiliary/Scanner</h2>
-
+ <!--     Auxiliary modules list from here           -->
+    <br><h2>Popular Auxiliary Modules</h2>
     <ul>
     <table class="DefaultTable">
       <thead>
@@ -61,23 +62,28 @@
             <td>scanner/smb/smb_login</td>
           </tr>
           <tr>
-            <td> SMBv1 Exploit</td>
-            <td>exploit/windows/smb/ms17_010_eternalblue</td>
+            <td>SSH Login Brute-Force</td>
+            <td>
+              scanner/ssh/ssh_login 
+            </td>
           </tr>
       </tbody>
     </table>
     </ul>
 
-        <h2>Popular Services MSF Modules</h2>
+  <!--               services modules list from here           -->
+
+        <br><h2>Popular Services MSF Modules</h2>
         <ul>
             <li>
+               <!--  smb services   -->
                 <h3>SMB</h3>
                 <ul>
                     <table class="DefaultTable">
                       <thead>
                         <tr>
                           <th>Service Name</th>
-                          <th>Auxiliary Modules</th>
+                          <th>Modules</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -96,8 +102,54 @@
                       </tbody>
                     </table>
                     </ul>
-
             </li>
+
+            <li>
+              <!--  ssh services   -->
+              <h3>SSH</h3>
+              <ul>
+                  <table class="DefaultTable">
+                    <thead>
+                      <tr>
+                        <th>Service Name</th>
+                        <th>Modules</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>SSH Login Brute-Force</td>
+                        <td>scanner/ssh/ssh_login</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </ul>
+          </li>
+
+          <li>
+            <!--  http services   -->
+            <h3>HTTP</h3>
+            <ul>
+                <table class="DefaultTable">
+                  <thead>
+                    <tr>
+                      <th>Service Name</th>
+                      <th>Modules</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>HTTP Version Detection</td>
+                      <td>scanner/http/http_version</td>
+                    </tr>
+                  </tbody>
+                </table>
+                </ul>
+        </li>
+
+
+
+
+
         </ul>
         
     </div>
