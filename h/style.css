@@ -24,3 +24,10 @@ table.DefaultTable {
   table.DefaultTable thead {
     background-color: #e8e8e8;
   }
+
+  code {
+    background-color: #212c42;
+    color: #fff;
+    padding: 6px 8px 2px 8px;
+
+  }
