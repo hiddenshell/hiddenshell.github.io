@@ -89,7 +89,7 @@
                       <tbody>
                         <tr>
                           <td>SMB Version Scan</td>
-                          <td>scanner/smb/smb_version or scanner/smb/smb_enumshares</td>
+                          <td>auxiliary/scanner/smb/smb_version or scanner/smb/smb_enumshares</td>
                         </tr>
                         <tr>
                           <td> SMB MS17-010 RCE Detection</td>
@@ -101,11 +101,11 @@
                         </tr>
                         <tr>
                             <td>SMB Login Brute-Force</td>
-                            <td>scanner/smb/smb_login</td>
+                            <td>auxiliary/scanner/smb/smb_login</td>
                           </tr>
                           <tr>
                             <td>UDP service Identification</td>
-                            <td>scanner/discovery/udp_sweep</td>
+                            <td>auxiliary/scanner/discovery/udp_sweep</td>
                           </tr>
                       </tbody>
                     </table>
@@ -126,7 +126,7 @@
                     <tbody>
                       <tr>
                         <td>SSH Login Brute-Force</td>
-                        <td>scanner/ssh/ssh_login</td>
+                        <td>auxiliary/scanner/ssh/ssh_login</td>
                       </tr>
                     </tbody>
                   </table>
@@ -147,14 +147,36 @@
                   <tbody>
                     <tr>
                       <td>HTTP Version Detection</td>
-                      <td>scanner/http/http_version</td>
+                      <td>auxiliary/scanner/http/http_version</td>
                     </tr>
                   </tbody>
                 </table>
                 </ul>
         </li>
 
-
+        <li>
+          <!--  RDP services   -->
+          <h3>RDP</h3>
+          <ul>
+              <table class="DefaultTable">
+                <thead>
+                  <tr>
+                    <th>Service Name</th>
+                    <th>Modules</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>RDP RCE Check</td>
+                    <td>auxiliary/scanner/rdp/cve_2019_0708_bluekeep </td>
+                  <tr>
+                    <td>BlueKeep RDP Exploit</td>
+                    <td>exploit/windows/rdp/cve_2019_0708_bluekeep_rce </td>
+                  </tr>
+                </tbody>
+              </table>
+              </ul>
+      </li>
 
 
 
