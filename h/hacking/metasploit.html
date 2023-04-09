@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metasploit</title>
+    <title>Metasploit-Framework</title>
     <link rel="stylesheet" href="../style.css">
     <style>
         </style>
@@ -16,30 +16,9 @@
       <p>Start database for msfconsole: <code> systemctl start postgresql </code><br>
          Then initialize the Metasploit Database: <code> msfdb init </code> <br>
          check the database status using the <code> db_status </code> command.</p>
+         <p>Jump To Metasploit Commands -- <a href="#msf-commands" target="_blank" rel="noopener noreferrer">Jump</a></p>
     </div>
-    <div>
-<!--     Exploits modules list from here           -->
-      <div id="exploit">
-        <br><h2>Popular Exploit</h2>
-        <ul>
-            <table class="DefaultTable">
-              <thead>
-                <tr>
-                  <th>Service Name</th>
-                  <th>Exploit Modules</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td> SMBv1 Exploit</td>
-                  <td>exploit/windows/smb/ms17_010_eternalblue</td>
-                </tr>
-                
-              </tbody>
-            </table>
-            </ul>
-      </div>      
-
+    <div>     
  <!--     Auxiliary modules list from here           -->
  <div id="auxiliary">
     <br><h2>Popular Auxiliary Modules</h2>
@@ -82,7 +61,27 @@
     </table>
     </ul>
  </div>
-
+<!--     Exploits modules list from here           -->
+<div id="exploit">
+  <br><h2>Popular Exploit</h2>
+  <ul>
+      <table class="DefaultTable">
+        <thead>
+          <tr>
+            <th>Service Name</th>
+            <th>Exploit Modules</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> SMBv1 Exploit</td>
+            <td>exploit/windows/smb/ms17_010_eternalblue</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      </ul>
+</div> 
  <!--     Post modules list from here           -->
  <div id="post-exploit">
     <br><h2>Popular Post-Exploit</h2>
@@ -214,6 +213,182 @@
       </li>
         </ul>
         
+    </div>
+<br>
+    <div id="msf-commands">
+      <h3>Meterpreter commands</h3>
+      <span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">Core commands will be
+        helpful to navigate and interact with the target system. Below are some of the most commonly used. Remember to
+        check all available commands running the help command once a Meterpreter session has started.</span><br><br>
+        <span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">Core commands</span>
+      <ul>
+        <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+            <code>background</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">: Backgrounds the
+                current session</span></li>
+        <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+            <code>exit</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">:
+                Terminate the Meterpreter session</span></li>
+        <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+            <code>guid</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">:
+                Get the session GUID (Globally Unique Identifier)<br></span></li>
+        <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+            <code>help</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">:
+                Displays the help menu</span></li>
+        <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+            <code>info</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">:
+                Displays information about a Post module</span></li>
+        <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+            <code>irb</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">:
+                Opens an interactive Ruby shell on the current session</span></li>
+        <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+            <code>load</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">:
+                Loads one or more Meterpreter extensions</span></li>
+        <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+            <code>migrate</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">: Allows you to
+                migrate Meterpreter to another process</span></li>
+        <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+            <code>run</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">:
+                Executes a Meterpreter script or Post module</span></li>
+        <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+            <code>sessions</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">: Quickly switch to
+                another session</span></li>
+    </ul>
+
+    <p style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt"><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">File system
+      commands</span></p>
+
+      <ul>
+        <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+            <code>cd</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">:
+                Will change directory</span></li>
+        <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+            <code>ls</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">:
+                Will list files in the current directory (dir will also work)</span></li>
+        <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+            <code>pwd</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">:
+                Prints the current working directory</span></li>
+        <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+            <code>edit</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">:
+                will allow you to edit a file</span></li>
+        <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+            <code>cat</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">:
+                Will show the contents of a file to the screen</span></li>
+        <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+            <code>rm</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">:
+                Will delete the specified file</span></li>
+        <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+            <code>search</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">:
+                Will search for files</span></li>
+        <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+            <code>upload</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">:
+                Will upload a file or directory</span></li>
+        <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+            <code>download</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">: Will download a file
+                or directory</span></li>
+    </ul>
+
+
+    <p style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt"><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">Networking commands</span>
+    </p>
+    <ul>
+      <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+          <code>arp</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">:
+              Displays the host ARP (Address Resolution Protocol) cache</span></li>
+      <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+          <code>ifconfig</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">: Displays network
+              interfaces available on the target system<br></span></li>
+      <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+          <code>netstat</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">: Displays the network
+              connections</span></li>
+      <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+          <code>portfwd</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">: Forwards a local
+              port to a remote service</span></li>
+      <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+          <code>route</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">:
+              Allows you to view and modify the routing table</span></li>
+  </ul>
+
+  <p style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt"><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">System commands</span></p>
+  <ul>
+    <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+        <code>clearev</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">: Clears the event
+            logs</span></li>
+    <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+        <code>execute</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">: Executes a
+            command</span></li>
+    <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+        <code>getpid</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">:
+            Shows the current process identifier</span></li>
+    <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+        <code>getuid</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">:
+            Shows the user that Meterpreter is running as</span></li>
+    <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+        <code>kill</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">:
+            Terminates a process</span></li>
+    <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+        <code>pkill</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">:
+            Terminates processes by name</span></li>
+    <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+        <code>ps</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">:
+            Lists running processes</span></li>
+    <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+        <code>reboot</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">:
+            Reboots the remote computer</span></li>
+    <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+        <code>shell</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">:
+            Drops into a system command shell</span></li>
+    <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+        <code>shutdown</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">: Shuts down the
+            remote computer</span></li>
+    <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+        <code>sysinfo</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">: Gets information
+            about the remote system, such as OS</span></li>
+</ul>
+<p style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt"><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">Others Commands (these
+  will be listed under different menu categories in the help menu)</span></p>
+  <ul>
+    <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+        <code>idletime</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">: Returns the number
+            of seconds the remote user has been idle</span></li>
+    <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+        <code>keyscan_dump</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">: Dumps the keystroke
+            buffer</span></li>
+    <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+        <code>keyscan_start</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">: Starts capturing
+            keystrokes</span></li>
+    <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+        <code>keyscan_stop</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">: Stops capturing
+            keystrokes</span></li>
+    <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+        <code>screenshare</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">: Allows you to watch
+            the remote user's desktop in real time</span></li>
+    <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+        <code>screenshot</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">: Grabs a screenshot
+            of the interactive desktop</span></li>
+    <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+        <code>record_mic</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">: Records audio from
+            the default microphone for X seconds</span></li>
+    <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+        <code>webcam_chat</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">: Starts a video
+            chat</span></li>
+    <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+        <code>webcam_list</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">: Lists webcams</span>
+    </li>
+    <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+        <code>webcam_snap</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">: Takes a snapshot
+            from the specified webcam</span></li>
+    <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+        <code>webcam_stream</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">: Plays a video stream
+            from the specified webcam</span></li>
+    <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+        <code>getsystem</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">: Attempts to elevate
+            your privilege to that of local system</span></li>
+    <li style="color:rgb(14, 16, 26);background:transparent none repeat scroll 0% 0%;margin-top:0pt;margin-bottom:0pt">
+        <code>hashdump</code><span style="color:rgb(14, 16, 26);background:transparent;margin-top:0pt;margin-bottom:0pt">: Dumps the contents
+            of the SAM database</span></li>
+</ul>
+
+
     </div>
     
 </body>
