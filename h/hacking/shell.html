@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shell</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <h1 style="text-align: center;">Shell</h1><br><br>
+    <div>
+        <h3>Netcat Shell Stabilisation </h3>
+            <div><u><i>Technique 1: Python<br></i></u>
+            </p><p><span>The first technique we'll be discussing is applicable only to Linux boxes. This is a three stage process:</span></p>
+            <ol><li>The first thing to do is use <code>python -c 'import pty;pty.spawn("/bin/bash")'</code>, which uses Python to spawn a better featured bash shell;</li>
+                <li>Step two is: <code>export TERM=xterm</code> -- this will give us access to term commands such as <code>clear</code>. </li>
+                <li>Finally (and most importantly) we will background the shell using Ctrl + Z. Back in our own terminal we use <code>stty raw -echo; fg</code>. </li>
+            </ol></div>
+
+            <div>
+                Technique 2: rlwrap
+
+                rlwrap is a program which, in simple terms, gives us access to history, tab autocompletion and the arrow keys immediately upon receiving a shell; however, some manual stabilisation must still be utilised if you want to be able to use Ctrl + C inside the shell. rlwrap is not installed by default on Kali, so first install it with sudo apt install rlwrap.
+
+                To use rlwrap, we invoke a slightly different listener:
+
+                <code>rlwrap nc -lvnp [port]</code>
+
+            </div>
+    </div>
+</body>
+</html>

