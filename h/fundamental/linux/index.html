@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LInux Fundamental</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <h1 class="head">Linux Fundamental</h1>
+
+    <div class="blog-post__body" bis_skin_checked="1">
+<h3 style="font-weight: bold;"><span style="color: #231556;">Linux users and their privileges systems </span></h3>
+<p>One of the most important files on the Linux system is the passwd file, located at /etc/passwd. </p>
+<p style="text-align: center;"><img src="https://delinea.com/hs-fs/hubfs/passwd-file.png?width=750&amp;name=passwd-file.png" alt="passwd file" loading="lazy" style="width: 750px; margin-left: auto; margin-right: auto; display: block;" srcset="https://delinea.com/hs-fs/hubfs/passwd-file.png?width=375&amp;name=passwd-file.png 375w, https://delinea.com/hs-fs/hubfs/passwd-file.png?width=750&amp;name=passwd-file.png 750w, https://delinea.com/hs-fs/hubfs/passwd-file.png?width=1125&amp;name=passwd-file.png 1125w, https://delinea.com/hs-fs/hubfs/passwd-file.png?width=1500&amp;name=passwd-file.png 1500w, https://delinea.com/hs-fs/hubfs/passwd-file.png?width=1875&amp;name=passwd-file.png 1875w, https://delinea.com/hs-fs/hubfs/passwd-file.png?width=2250&amp;name=passwd-file.png 2250w" sizes="(max-width: 750px) 100vw, 750px" width="750"><em>passwd file from Solidstate machine on Hackthebox platform</em></p>
+<p>Each line represents a user on the Linux system.</p>
+<p>Each field is separated using the colon “:” character in which the fields represent the following passwd file format:</p>
+<ol>
+    <img decoding="async" src="https://i0.wp.com/4.bp.blogspot.com/-T7mSt3TuJFo/WvbkVfmmViI/AAAAAAAAW0Y/Db4b8D36XQQSXh3DREfXVt8gSiPsO7EBwCLcBGAs/s1600/0.png?w=640" data-recalc-dims="1" class="jetpack-lazy-image jetpack-lazy-image--handled" data-lazy-loaded="1" loading="eager">
+    <br>
+    <img decoding="async" src="https://i0.wp.com/1.bp.blogspot.com/-JlUe4xMReCo/WvbkVBafMLI/AAAAAAAAW0U/e3WBMka5w-UBboTIVLE6utYPkkFLuVwDACLcBGAs/s1600/1.1.png?w=640" height="300">
+<li>Username</li>
+<li>Password Placeholder (x indicates encrypted password is stored in the /etc/shadow file)</li>
+<li>User ID (UID)</li>
+<li>Group ID (GID)</li>
+<li>Personal Information (separated by comma’s) – can contain full name, department, etc.</li>
+<li>Home Directory</li>
+<li>Shell – absolute path to the command shell used (if /sbin/nologon then logon isn’t permitted, and the connection gets closed)</li>
+</ol>
+<p>Any user with a user ID above 1000 isn’t a default user and has been added to the system. <br>
+“UID 0” is reserved for the root account. “1-99” are for predefined accounts and “100-999” are for system administration.</p>
+<p>The passwd file is typically readable by all users. For example, if you run the command “ls -la /etc/passwd” you will get output like the following:</p>
+<p style="text-align: center;"><img src="https://delinea.com/hs-fs/hubfs/ls-la-command-1.png?width=750&amp;name=ls-la-command-1.png" alt="ls -la command" loading="lazy" style="width: 750px; margin-left: auto; margin-right: auto; display: block;" srcset="https://delinea.com/hs-fs/hubfs/ls-la-command-1.png?width=375&amp;name=ls-la-command-1.png 375w, https://delinea.com/hs-fs/hubfs/ls-la-command-1.png?width=750&amp;name=ls-la-command-1.png 750w, https://delinea.com/hs-fs/hubfs/ls-la-command-1.png?width=1125&amp;name=ls-la-command-1.png 1125w, https://delinea.com/hs-fs/hubfs/ls-la-command-1.png?width=1500&amp;name=ls-la-command-1.png 1500w, https://delinea.com/hs-fs/hubfs/ls-la-command-1.png?width=1875&amp;name=ls-la-command-1.png 1875w, https://delinea.com/hs-fs/hubfs/ls-la-command-1.png?width=2250&amp;name=ls-la-command-1.png 2250w" sizes="(max-width: 750px) 100vw, 750px" width="750"><em>Using the ls -la command to view file permissions </em></p>
+<p>The permissions in the “ls -la” output for the /etc/passwd file show the following format:</p>
+<p><img src="https://delinea.com/hs-fs/hubfs/delinea-privilege-escalation-permissions-line-blog.jpg?width=500&amp;name=delinea-privilege-escalation-permissions-line-blog.jpg" alt="Permissions rw-r--r--" loading="lazy" style="width: 500px; margin-left: auto; margin-right: auto; display: block;" srcset="https://delinea.com/hs-fs/hubfs/delinea-privilege-escalation-permissions-line-blog.jpg?width=250&amp;name=delinea-privilege-escalation-permissions-line-blog.jpg 250w, https://delinea.com/hs-fs/hubfs/delinea-privilege-escalation-permissions-line-blog.jpg?width=500&amp;name=delinea-privilege-escalation-permissions-line-blog.jpg 500w, https://delinea.com/hs-fs/hubfs/delinea-privilege-escalation-permissions-line-blog.jpg?width=750&amp;name=delinea-privilege-escalation-permissions-line-blog.jpg 750w, https://delinea.com/hs-fs/hubfs/delinea-privilege-escalation-permissions-line-blog.jpg?width=1000&amp;name=delinea-privilege-escalation-permissions-line-blog.jpg 1000w, https://delinea.com/hs-fs/hubfs/delinea-privilege-escalation-permissions-line-blog.jpg?width=1250&amp;name=delinea-privilege-escalation-permissions-line-blog.jpg 1250w, https://delinea.com/hs-fs/hubfs/delinea-privilege-escalation-permissions-line-blog.jpg?width=1500&amp;name=delinea-privilege-escalation-permissions-line-blog.jpg 1500w" sizes="(max-width: 500px) 100vw, 500px" width="500"></p>
+<p>The first character “-“ is reserved as a special permission that can vary. Another special permission that can be used here is known as SUID, GUID or the Sticky Bit. We will cover the special permission a little bit later.</p>
+<p>Permission Groups are defined as follows:</p>
+<ol>
+<li>Owner</li>
+<li>Group</li>
+<li>All Users</li>
+</ol>
+<p>Permission Types are defined as follows:</p>
+<ol>
+<li>Read = 4</li>
+<li>Write = 2</li>
+<li>Execute = 1</li>
+<li>– (No permissions set) = 0</li>
+</ol>
+<p>So, let’s explain the output from the /etc/passwd file above. It has the following access permissions:</p>
+<ol>
+<li>File Type</li>
+<li>Owner (root) has read and write permissions</li>
+<li>Group (root) has read permissions</li>
+<li>All Users has read permissions</li>
+<li>Number represents hard links to the file</li>
+<li>Owner</li>
+<li>Group</li>
+</ol>
+<p><img src="https://delinea.com/hs-fs/hubfs/delinea-privilege-escalation-passwd-access-permissions-blog.jpg?width=750&amp;name=delinea-privilege-escalation-passwd-access-permissions-blog.jpg" alt="passwd access permissions" loading="lazy" style="width: 750px; margin-left: auto; margin-right: auto; display: block;" srcset="https://delinea.com/hs-fs/hubfs/delinea-privilege-escalation-passwd-access-permissions-blog.jpg?width=375&amp;name=delinea-privilege-escalation-passwd-access-permissions-blog.jpg 375w, https://delinea.com/hs-fs/hubfs/delinea-privilege-escalation-passwd-access-permissions-blog.jpg?width=750&amp;name=delinea-privilege-escalation-passwd-access-permissions-blog.jpg 750w, https://delinea.com/hs-fs/hubfs/delinea-privilege-escalation-passwd-access-permissions-blog.jpg?width=1125&amp;name=delinea-privilege-escalation-passwd-access-permissions-blog.jpg 1125w, https://delinea.com/hs-fs/hubfs/delinea-privilege-escalation-passwd-access-permissions-blog.jpg?width=1500&amp;name=delinea-privilege-escalation-passwd-access-permissions-blog.jpg 1500w, https://delinea.com/hs-fs/hubfs/delinea-privilege-escalation-passwd-access-permissions-blog.jpg?width=1875&amp;name=delinea-privilege-escalation-passwd-access-permissions-blog.jpg 1875w, https://delinea.com/hs-fs/hubfs/delinea-privilege-escalation-passwd-access-permissions-blog.jpg?width=2250&amp;name=delinea-privilege-escalation-passwd-access-permissions-blog.jpg 2250w" sizes="(max-width: 750px) 100vw, 750px" width="750"></p>
+<p>Special Permissions (first bit in permissions) has the following options:</p>
+<p><img src="https://delinea.com/hs-fs/hubfs/delinea-privilege-escalation-special-permissions-blog.png?width=400&amp;name=delinea-privilege-escalation-special-permissions-blog.png" alt="Special permissions" loading="lazy" style="width: 400px; margin-left: auto; margin-right: auto; display: block;" srcset="https://delinea.com/hs-fs/hubfs/delinea-privilege-escalation-special-permissions-blog.png?width=200&amp;name=delinea-privilege-escalation-special-permissions-blog.png 200w, https://delinea.com/hs-fs/hubfs/delinea-privilege-escalation-special-permissions-blog.png?width=400&amp;name=delinea-privilege-escalation-special-permissions-blog.png 400w, https://delinea.com/hs-fs/hubfs/delinea-privilege-escalation-special-permissions-blog.png?width=600&amp;name=delinea-privilege-escalation-special-permissions-blog.png 600w, https://delinea.com/hs-fs/hubfs/delinea-privilege-escalation-special-permissions-blog.png?width=800&amp;name=delinea-privilege-escalation-special-permissions-blog.png 800w, https://delinea.com/hs-fs/hubfs/delinea-privilege-escalation-special-permissions-blog.png?width=1000&amp;name=delinea-privilege-escalation-special-permissions-blog.png 1000w, https://delinea.com/hs-fs/hubfs/delinea-privilege-escalation-special-permissions-blog.png?width=1200&amp;name=delinea-privilege-escalation-special-permissions-blog.png 1200w" sizes="(max-width: 400px) 100vw, 400px" width="400"></p>
+<ol>
+<li>_ - no special permissions set</li>
+<li>d – directory</li>
+<li>l – file has symbolic links</li>
+<li>s – setuid or setgid is set</li>
+<li>t – sticky bit set</li>
+</ol>
+<p>Next, let’s cover Access Control Lists or File Attributes on Linux. These can apply to both directories and files. You can use the “getfacl” command to get the file access control lists for each file. It will display the access permissions defined by the traditional file mode permission bits.</p>
+<p style="text-align: center;"><img src="https://delinea.com/hs-fs/hubfs/getfacl.png?width=750&amp;name=getfacl.png" alt="getfacl" loading="lazy" style="width: 750px; margin-left: auto; margin-right: auto; display: block;" srcset="https://delinea.com/hs-fs/hubfs/getfacl.png?width=375&amp;name=getfacl.png 375w, https://delinea.com/hs-fs/hubfs/getfacl.png?width=750&amp;name=getfacl.png 750w, https://delinea.com/hs-fs/hubfs/getfacl.png?width=1125&amp;name=getfacl.png 1125w, https://delinea.com/hs-fs/hubfs/getfacl.png?width=1500&amp;name=getfacl.png 1500w, https://delinea.com/hs-fs/hubfs/getfacl.png?width=1875&amp;name=getfacl.png 1875w, https://delinea.com/hs-fs/hubfs/getfacl.png?width=2250&amp;name=getfacl.png 2250w" sizes="(max-width: 750px) 100vw, 750px" width="750"><em>Using the getfacl to view the file access control lists </em></p>
+<p>Some common commands used to view or manage access control lists in Linux are:</p>
+<ul>
+<li>getfacl – get file access control list</li>
+<li>setfacl – set file access control list</li>
+<li>chmod – change file mode bits</li>
+<li>acl – Access Control Lists</li>
+<li>chown – change file owner and group</li>
+</ul>
+<p>Users can also be a member of a group on Linux systems, and this is defined in the /etc/group file in which an example is shown below:</p>
+<p><img src="https://delinea.com/hs-fs/hubfs/etc-group-file.png?width=750&amp;name=etc-group-file.png" alt="/etc/group file" loading="lazy" style="width: 750px; margin-left: auto; margin-right: auto; display: block;" srcset="https://delinea.com/hs-fs/hubfs/etc-group-file.png?width=375&amp;name=etc-group-file.png 375w, https://delinea.com/hs-fs/hubfs/etc-group-file.png?width=750&amp;name=etc-group-file.png 750w, https://delinea.com/hs-fs/hubfs/etc-group-file.png?width=1125&amp;name=etc-group-file.png 1125w, https://delinea.com/hs-fs/hubfs/etc-group-file.png?width=1500&amp;name=etc-group-file.png 1500w, https://delinea.com/hs-fs/hubfs/etc-group-file.png?width=1875&amp;name=etc-group-file.png 1875w, https://delinea.com/hs-fs/hubfs/etc-group-file.png?width=2250&amp;name=etc-group-file.png 2250w" sizes="(max-width: 750px) 100vw, 750px" width="750"></p>
+<p>Group format is as follows:</p>
+<ol>
+<li>Group Name</li>
+<li>Password Placeholder</li>
+<li>Group ID</li>
+<li>Members of the group</li>
+</ol>
+<p>Let’s talk about the /etc/shadow file, along with the format and how it’s used.</p>
+<p style="text-align: center;"><img src="https://delinea.com/hs-fs/hubfs/etc-shadow-file.png?width=750&amp;name=etc-shadow-file.png" alt="/etc/shadow file" loading="lazy" style="width: 750px; margin-left: auto; margin-right: auto; display: block;" srcset="https://delinea.com/hs-fs/hubfs/etc-shadow-file.png?width=375&amp;name=etc-shadow-file.png 375w, https://delinea.com/hs-fs/hubfs/etc-shadow-file.png?width=750&amp;name=etc-shadow-file.png 750w, https://delinea.com/hs-fs/hubfs/etc-shadow-file.png?width=1125&amp;name=etc-shadow-file.png 1125w, https://delinea.com/hs-fs/hubfs/etc-shadow-file.png?width=1500&amp;name=etc-shadow-file.png 1500w, https://delinea.com/hs-fs/hubfs/etc-shadow-file.png?width=1875&amp;name=etc-shadow-file.png 1875w, https://delinea.com/hs-fs/hubfs/etc-shadow-file.png?width=2250&amp;name=etc-shadow-file.png 2250w" sizes="(max-width: 750px) 100vw, 750px" width="750"><em>root is the only user who can read and write to the shadow file </em></p>
+<p>The shadow file is one of the most protected files on a Linux system as it contains the encrypted password used by all known users to log on to the system.</p>
+<p><img src="https://delinea.com/hs-fs/hubfs/etc-shadow-file-2.png?width=750&amp;name=etc-shadow-file-2.png" alt="/etc/shadow file" loading="lazy" style="width: 750px; margin-left: auto; margin-right: auto; display: block;" srcset="https://delinea.com/hs-fs/hubfs/etc-shadow-file-2.png?width=375&amp;name=etc-shadow-file-2.png 375w, https://delinea.com/hs-fs/hubfs/etc-shadow-file-2.png?width=750&amp;name=etc-shadow-file-2.png 750w, https://delinea.com/hs-fs/hubfs/etc-shadow-file-2.png?width=1125&amp;name=etc-shadow-file-2.png 1125w, https://delinea.com/hs-fs/hubfs/etc-shadow-file-2.png?width=1500&amp;name=etc-shadow-file-2.png 1500w, https://delinea.com/hs-fs/hubfs/etc-shadow-file-2.png?width=1875&amp;name=etc-shadow-file-2.png 1875w, https://delinea.com/hs-fs/hubfs/etc-shadow-file-2.png?width=2250&amp;name=etc-shadow-file-2.png 2250w" sizes="(max-width: 750px) 100vw, 750px" width="750"></p>
+<p>Like the passwd file, each field is separated by a colon “:” and the format of the shadow file is the following:</p>
+<ol>
+<li>Username</li>
+<li>Password (typically encrypted in a one-way hash format) such as:
+<ol type="a">
+<li><span style="background-color: #ffffff;">$1$ is MD5 </span><br><span style="background-color: #ffffff;"></span></li>
+<li><span style="background-color: #ffffff;">$2a$ is Blowfish </span><br><span style="background-color: #ffffff;"></span></li>
+<li><span style="background-color: #ffffff;">$5$ is SHA-256 </span><br><span style="background-color: #ffffff;"></span></li>
+<li><span style="background-color: #ffffff;">$6$ is SHA-512&nbsp;</span></li>
+</ol>
+</li>
+<li>Last password change</li>
+<li>Minimum password age</li>
+<li>Maximum password age</li>
+<li>Warn period</li>
+<li>Inactivity period</li>
+<li>Expiration date</li>
+<li>Unused field</li>
+</ol>
+<p>Common commands used to manage users on Linux systems are the following:</p>
+<ul>
+<li>adduser – add a user to the system</li>
+<li>addgroup – add a group to the system</li>
+<li>deluser – delete a user from the system</li>
+<li>usermod – modify a user account</li>
+<li>passwd – used to change a user password</li>
+</ul>
+<p>If you want to read more details on how to use each of the commands noted so far, including a full description along with command options, refer to the Linux man command, which is used to access the Linux man pages. An example is below for the command “man adduser”:</p>
+<p style="text-align: center;"><img src="https://delinea.com/hs-fs/hubfs/man-adduser-output-1.png?width=750&amp;name=man-adduser-output-1.png" alt="output when using &quot;man adduser&quot; command " loading="lazy" style="width: 750px; margin-left: auto; margin-right: auto; display: block;" srcset="https://delinea.com/hs-fs/hubfs/man-adduser-output-1.png?width=375&amp;name=man-adduser-output-1.png 375w, https://delinea.com/hs-fs/hubfs/man-adduser-output-1.png?width=750&amp;name=man-adduser-output-1.png 750w, https://delinea.com/hs-fs/hubfs/man-adduser-output-1.png?width=1125&amp;name=man-adduser-output-1.png 1125w, https://delinea.com/hs-fs/hubfs/man-adduser-output-1.png?width=1500&amp;name=man-adduser-output-1.png 1500w, https://delinea.com/hs-fs/hubfs/man-adduser-output-1.png?width=1875&amp;name=man-adduser-output-1.png 1875w, https://delinea.com/hs-fs/hubfs/man-adduser-output-1.png?width=2250&amp;name=man-adduser-output-1.png 2250w" sizes="(max-width: 750px) 100vw, 750px" width="750"><em>The output when using "man adduser" command </em></p>
+<p>Below is an example of using “mkpasswd” to create an encrypted password with a SHA-512 hash. This can sometimes be helpful when you want to add a user with password directly in the passwd file or if you have permissions to modify the shadow file. As you can see, the password starts with $6$, which indicates that this password is encrypted with SHA-512 followed by the hash salt. Then the password hash is after the 3rd “$” sign.</p>
+<p><img src="https://delinea.com/hs-fs/hubfs/mkpasswd.png?width=750&amp;name=mkpasswd.png" alt="mkpasswd" loading="lazy" style="width: 750px; margin-left: auto; margin-right: auto; display: block;" srcset="https://delinea.com/hs-fs/hubfs/mkpasswd.png?width=375&amp;name=mkpasswd.png 375w, https://delinea.com/hs-fs/hubfs/mkpasswd.png?width=750&amp;name=mkpasswd.png 750w, https://delinea.com/hs-fs/hubfs/mkpasswd.png?width=1125&amp;name=mkpasswd.png 1125w, https://delinea.com/hs-fs/hubfs/mkpasswd.png?width=1500&amp;name=mkpasswd.png 1500w, https://delinea.com/hs-fs/hubfs/mkpasswd.png?width=1875&amp;name=mkpasswd.png 1875w, https://delinea.com/hs-fs/hubfs/mkpasswd.png?width=2250&amp;name=mkpasswd.png 2250w" sizes="(max-width: 750px) 100vw, 750px" width="750"></p>
+<p>Ok, now you have a basic understanding of Linux access controls and permissions. Let’s move on to common Linux privilege escalation techniques used by cybercriminals.</p>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>
