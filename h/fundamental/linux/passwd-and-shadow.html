@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Everything About Passwd and Shadow File</title>
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <h1 class='head'>Everything About etc/passwd and etc/shadow File</h1><br>
+
+    <div>
+        <h2>Crack shadow file users password hash</h2>
+        <p>Create two file: One >> pass.txt which is contain <b>passwd</b> file content<br>
+        Another one >> shadow.txt which is contain <b>shadow</b> file content.</p>
+        <p>Now unshadow those files using <code>unshadow pass.txt shadow.txt > passwords.txt</code> 
+            <br>here passwords.txt conatain all information about Users.
+        </p>
+        <p>Now crack this passwords.txt file with john by this command: <br>
+        <code>john --wordlist=/usr/share/wordlists/rockyou.txt passwords.txt</code></p>
+    </div>
+
+    <div><br><br>
+    <h2>Add new user though passwd and shadow file</h2>
+    <p>First make user encrypted password:<br><br>
+        <code>openssl passwd -1 -salt [salt value] {password}</code><br> or <br> <code>mkpasswd -m SHA-512 pass</code><br><br>
+     Then, add this line to <b>etc/passwd</b> file.<br> <br> 
+     <code>user2:[enc password]:0:0:,,,:/home/user2:/bin/bash</code><br>
+    
+    </p></div>
+    
+</body>
+</html>
