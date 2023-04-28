@@ -140,13 +140,16 @@ system("/bin/bash");
           <h2>Privilege Escalation with SUID</h2>
           <h4>What is SUID Permission?</h4>
           <p><b>SUID:</b> Set User ID is a type of permission that allows users to execute a file with the permissions of a specified user.<br>
-            If you execute <code> ls -al </code> with the file name and then you observe the small ‘s’ symbol, 
+            If you execute <code> ls -la </code> with the file name and then you observe the small ‘s’ symbol, 
             <br>then its means SUID bit is enabled for that file and can be executed with root privileges.
           </p>
           <h4>How to Find SUID Files</h4>
           <p>Use this command to see suid permission files <br>
-           <code> find / -type f -perm -04000 -ls 2>/dev/null </code>  or <code>find / -perm -u=s -type f 2>/dev/null</code>          </p>
-          
+           <code> find / -type f -perm -04000 -ls 2>/dev/null </code>  or <code>find / -perm -u=s -type f 2>/dev/null</code><br></p>
+          <p>Grab the result and find vuln SUID command using <a href="https://github.com/hiddenshell/linux-suid-vuln-finder" target="_blank" rel="noopener noreferrer">linux-suid-vuln-finder</a> tool.</p>
+          <p>Try to edit or read etc/passwd or etc/shadow using vuln suid command. <br>
+          All methods: <a href="../fundamental/linux/passwd-and-shadow.html" target="_blank" rel="noopener noreferrer">passwd-and-shadow</a></p>
+          <p>More details: <a href="https://www.hackingarticles.in/linux-privilege-escalation-using-suid-binaries/" target="_blank" rel="noopener noreferrer">here</a></p>
       </div>
     </body>
 </html>
