@@ -16,6 +16,8 @@
             </li>
             <li><a href="#suid">SUID</a>
             </li>
+            <li><a href="#capabilities">Capabilities</a>
+            </li>
           </ul>
             <h3>Use for Linux Commands for Privilege Escalation</h3>
             <table class="DefaultTable">
@@ -151,5 +153,19 @@ system("/bin/bash");
           All methods: <a href="../fundamental/linux/passwd-and-shadow.html" target="_blank" rel="noopener noreferrer">passwd-and-shadow</a></p>
           <p>More details: <a href="https://www.hackingarticles.in/linux-privilege-escalation-using-suid-binaries/" target="_blank" rel="noopener noreferrer">here</a></p>
       </div>
+
+      <div id="capabilities">
+        <h2>Privilege Escalation with capabilities</h2>
+        <h4>What is capabilities Permission?</h4>
+        <p>Capabilities are those permissions that divide the privileges of kernel user or kernel level programs into small pieces so that a process can be allowed sufficient power to perform specific privileged tasks.
+        </p>
+        <h4>How to Find capabilities Files</h4>
+        <p>Use this command to see capabilities permission files <br>
+         <code> getcap -r / 2>/dev/null</code><br></p>
+        <p>Grab the result and find vuln capabilities command using <a href="https://github.com/hiddenshell/linux-suid-vuln-finder" target="_blank" rel="noopener noreferrer">linux-suid-vuln-finder</a> tool.</p>
+    </div>
+
+
+    
     </body>
 </html>
